@@ -312,6 +312,7 @@ namespace Игра_с_массивами_шарики
         static void Main(string[] args)
         {
             int Nx = 0, Ny = 0,score=0;
+            Console.Write("Created by 13g_studio. Exclusive design by Pavel");
             Console.Write("Введите колличество строк : ");
             Nx = int.Parse(Console.ReadLine());
             Console.Write("Введите колличество столбцов : ");
