@@ -4,3 +4,9 @@ C:\Users\Павел\source\repos\Фоновая 3_4_2\Фоновая 3_4_2\bin\D
 C:\Users\Павел\source\repos\Фоновая 3_4_2\Фоновая 3_4_2\bin\Debug\Фоновая 3_4_2.pdb
 C:\Users\Павел\source\repos\Фоновая 3_4_2\Фоновая 3_4_2\obj\Debug\Фоновая 3_4_2.exe
 C:\Users\Павел\source\repos\Фоновая 3_4_2\Фоновая 3_4_2\obj\Debug\Фоновая 3_4_2.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\bin\Debug\Фоновая 3_4_2.exe.config
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\bin\Debug\Фоновая 3_4_2.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\bin\Debug\Фоновая 3_4_2.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\obj\Debug\Фоновая 3_4_2.csprojAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\obj\Debug\Фоновая 3_4_2.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Фоновая 3_4_2\Фоновая 3_4_2\obj\Debug\Фоновая 3_4_2.pdb
