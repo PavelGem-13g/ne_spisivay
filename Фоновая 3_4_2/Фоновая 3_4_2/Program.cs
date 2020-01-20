@@ -4,10 +4,8 @@ namespace Фоновая_3_4_2
 {
     class Program
     {
-        static int[][] InputArray()
+        static int[][] InputArray(int n)
         {
-            Console.Write("Введите количество строк ");
-            int n = int.Parse(Console.ReadLine());
             int[][] mas;
             mas = new int[n][];
             string[] s;
@@ -69,7 +67,7 @@ namespace Фоновая_3_4_2
                 }
             }
             int[] minmas;
-            if (Leng > 2)
+            if (Leng > 1)
             {
                 minmas = new int[Leng];
                 for (int imas = 0; imas < Leng; imas++)
@@ -127,7 +125,9 @@ namespace Фоновая_3_4_2
         }
         static void Main(string[] args)
         {
-            int[][] mas = InputArray();
+            Console.Write("Введите количество строк ");
+            int n = int.Parse(Console.ReadLine());
+            int[][] mas = InputArray(n);
             outPut(mas);
             sumMas(mas);
             Minus(mas);
