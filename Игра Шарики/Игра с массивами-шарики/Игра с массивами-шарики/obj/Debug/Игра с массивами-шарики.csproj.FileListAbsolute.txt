@@ -10,3 +10,10 @@ C:\Users\Павел\Documents\GitHub\ne_spisivay\Игра Шарики\Игра 
 C:\Users\Павел\Documents\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.csprojAssemblyReference.cache
 C:\Users\Павел\Documents\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.exe
 C:\Users\Павел\Documents\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.pdb
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\bin\Debug\Игра с массивами-шарики.exe.config
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\bin\Debug\Игра с массивами-шарики.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\bin\Debug\Игра с массивами-шарики.pdb
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.csprojAssemblyReference.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.csproj.CoreCompileInputs.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Игра Шарики\Игра с массивами-шарики\Игра с массивами-шарики\obj\Debug\Игра с массивами-шарики.pdb
