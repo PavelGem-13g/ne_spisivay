@@ -12,7 +12,7 @@ namespace Практика_Перечисления_Практика_3_4
         public static int sdvig(int day, int sdvig) 
         {
             if (sdvig / 7 >= 0) sdvig = sdvig - (sdvig / 7) * 7;
-            day = day + sdvig;           
+            day = day + sdvig;
             return day;
         }
         static void Main(string[] args)
