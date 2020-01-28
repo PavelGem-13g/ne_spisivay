@@ -1,0 +1,7 @@
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\bin\Debug\Практика_Структуры.exe.config
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\bin\Debug\Практика_Структуры.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\bin\Debug\Практика_Структуры.pdb
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\obj\Debug\Практика_Структуры.csprojAssemblyReference.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\obj\Debug\Практика_Структуры.csproj.CoreCompileInputs.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\obj\Debug\Практика_Структуры.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Структуры\Практика_Структуры\obj\Debug\Практика_Структуры.pdb
