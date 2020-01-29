@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E3CBF1E-751D-4D6C-8DC9-1F7A87099090}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Практика_Структуры</RootNamespace>
-    <AssemblyName>Практика_Структуры</AssemblyName>
+    <ProjectGuid>{E6AD9DD7-0986-4EE3-B7C7-99166A4FDCAD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Практика_Структура_save</RootNamespace>
+    <AssemblyName>Практика_Структура_save</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,9 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -2,7 +2,7 @@
 
 
 
-namespace Dcoder
+namespace Практика_Структуры
 {
 
     public class Program
@@ -14,7 +14,7 @@ namespace Dcoder
             public int Year;
             public int PlayTime;
         }
-        public static TMovie inputStruct ()
+        public static TMovie inputStruct()
         {
             TMovie input;
             input.Author = Console.ReadLine();
@@ -30,8 +30,8 @@ namespace Dcoder
         public static void outputTime(TMovie time)
         {
             int minutes = time.PlayTime % 60;
-            int hors = (time.PlayTime - minutes)/ 60;
-            Console.Write("Время просмотра:{0}мин или {1}ч и {2}мин",time.PlayTime,hors,minutes);
+            int hors = (time.PlayTime - minutes) / 60;
+            Console.Write("Время просмотра:{0}мин или {1}ч и {2}мин", time.PlayTime, hors, minutes);
         }
         public static void Main(string[] args)
         {
