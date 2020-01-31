@@ -1,7 +1,4 @@
 ﻿using System;
-
-
-
 namespace Практика_Структуры
 {
 
