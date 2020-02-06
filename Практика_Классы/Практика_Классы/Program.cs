@@ -56,20 +56,19 @@ namespace Практика_Классы
             point.output();
             while (true)
             {
-            Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z ");
-            direct = int.Parse(Console.ReadLine());
-            if ( 0< direct && direct < 4)
-            {
-                Console.Write("Введите насколько передвинется точка ");
-                delta = int.Parse(Console.ReadLine());
+                Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z. Введите 0 для выхода из программы ");
+                direct = int.Parse(Console.ReadLine());
+                if (0 < direct && direct < 4)
+                {
+                    Console.Write("Введите насколько передвинется точка ");
+                    delta = int.Parse(Console.ReadLine());
+                }
+                if (direct == 0) break;
+                if (direct == 1) point.movig(delta, 0, 0);
+                if (direct == 2) point.movig(0, delta, 0);
+                if (direct == 3) point.movig(0, 0, delta);
+                point.output();
             }
-            if (direct == 1) point.movig(delta, 0, 0);
-            if (direct == 2) point.movig(0, delta, 0);
-            if (direct == 3) point.movig(0, 0, delta);
-            point.output();
-            }
-
-            Console.ReadKey();
         }
     }
 }
