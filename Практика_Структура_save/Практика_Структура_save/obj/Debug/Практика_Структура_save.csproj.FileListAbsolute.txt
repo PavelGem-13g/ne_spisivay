@@ -5,3 +5,9 @@ C:\Users\pashe\source\repos\Практика_Структура_save\Практ�
 C:\Users\pashe\source\repos\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.csproj.CoreCompileInputs.cache
 C:\Users\pashe\source\repos\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.exe
 C:\Users\pashe\source\repos\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\bin\Debug\Практика_Структура_save.exe.config
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\bin\Debug\Практика_Структура_save.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\bin\Debug\Практика_Структура_save.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.csprojAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\Практика_Структура_save\Практика_Структура_save\obj\Debug\Практика_Структура_save.pdb
