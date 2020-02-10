@@ -19,11 +19,14 @@ namespace Практика_Классы
             this.y = y;
             this.z = z;
         }
-        public void movig(int x, int y, int z)
+        public void movig(int direction, int delta)
         {
-            this.x += x;
-            this.y += y;
-            this.z += z;
+            switch (direction)
+            {
+                case 1: this.x += delta; break;
+                case 2: this.y += delta; break;
+                case 3: this.z += delta; break;
+            }
         }
         public void output(int direction)
         {
@@ -32,7 +35,7 @@ namespace Практика_Классы
                 case 1: Console.WriteLine("x={0}", x);break;
                 case 2: Console.WriteLine("y={0}", y); break;
                 case 3: Console.WriteLine("z={0}", z); break;
-                defalt: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
+                default: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
             }
         }
     }
@@ -65,18 +68,14 @@ namespace Практика_Классы
             {
                 Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z. Введите 0 для выхода из программы ");
                 direct = int.Parse(Console.ReadLine());
+                if (direct == 0) break;
                 if (0 < direct && direct < 4)
                 {
                     Console.Write("Введите насколько передвинется точка ");
                     delta = int.Parse(Console.ReadLine());
                 }
-                if (direct == 0) break;
-                switch (direct)
-                {
-                    case 1: point.movig(delta, 0, 0);break;
-                    case 2: point.movig(0, delta, 0); break;
-                    case 3: point.movig(0, 0, delta); break;
-                }
+                
+                point.movig(direct, delta);
                 Console.Write("Введите ось для вывода: 1 - x, 2 - y, 3 - z. Введите 0 для вывода всех переменных ");
                 outdirect = int.Parse(Console.ReadLine());
                 point.output(outdirect);
