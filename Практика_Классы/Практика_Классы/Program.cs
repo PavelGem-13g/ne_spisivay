@@ -32,7 +32,7 @@ namespace Практика_Классы
                 case 1: Console.WriteLine("x={0}", x);break;
                 case 2: Console.WriteLine("y={0}", y); break;
                 case 3: Console.WriteLine("z={0}", z); break;
-                case 0: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
+                defalt: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
             }
         }
     }
