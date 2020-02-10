@@ -4,30 +4,36 @@ namespace Практика_Классы
 {
     class Point3D
     {
-        public int x;
-        public int y;
-        public int z;
+        private int x;
+        private int y;
+        private int z;
         public void startPos()
         {
             x = 0;
             y = 0;
             z = 0;
         }
-        public void startPos(int userX, int userY, int userZ)
+        public void startPos(int x, int y, int z)
         {
-            x = userX;
-            y = userY;
-            z = userZ;
+            this.x = x;
+            this.y = y;
+            this.z = z;
         }
-        public void movig(int moveX, int moveY, int moveZ)
+        public void movig(int x, int y, int z)
         {
-            x += moveX;
-            y += moveY;
-            z += moveZ;
+            this.x += x;
+            this.y += y;
+            this.z += z;
         }
-        public void output()
+        public void output(int direction)
         {
-            Console.WriteLine("x={0} y={1} z={2}", x, y, z);
+            switch (direction)
+            {
+                case 1: Console.WriteLine("x={0}", x);break;
+                case 2: Console.WriteLine("y={0}", y); break;
+                case 3: Console.WriteLine("z={0}", z); break;
+                case 0: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
+            }
         }
     }
     class Program
@@ -36,7 +42,7 @@ namespace Практика_Классы
         static void Main(string[] args)
         {
             Point3D point = new Point3D();
-            int x = 0, y = 0, z = 0, createPoint = 0, direct = 0, delta = 0;
+            int x, y, z, createPoint;
             do
             {
                 Console.Write("Введите способ создания точки: 1 - точка находится в пересечении координат, 2 - Вы сами вводите координату ");
@@ -53,7 +59,8 @@ namespace Практика_Классы
                 z = int.Parse(Console.ReadLine());
                 point.startPos(x, y, z);
             }
-            point.output();
+            point.output(0);
+            int outdirect, direct, delta=0;
             while (true)
             {
                 Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z. Введите 0 для выхода из программы ");
@@ -64,10 +71,15 @@ namespace Практика_Классы
                     delta = int.Parse(Console.ReadLine());
                 }
                 if (direct == 0) break;
-                if (direct == 1) point.movig(delta, 0, 0);
-                if (direct == 2) point.movig(0, delta, 0);
-                if (direct == 3) point.movig(0, 0, delta);
-                point.output();
+                switch (direct)
+                {
+                    case 1: point.movig(delta, 0, 0);break;
+                    case 2: point.movig(0, delta, 0); break;
+                    case 3: point.movig(0, 0, delta); break;
+                }
+                Console.Write("Введите ось для вывода: 1 - x, 2 - y, 3 - z. Введите 0 для вывода всех переменных ");
+                outdirect = int.Parse(Console.ReadLine());
+                point.output(outdirect);
             }
         }
     }
