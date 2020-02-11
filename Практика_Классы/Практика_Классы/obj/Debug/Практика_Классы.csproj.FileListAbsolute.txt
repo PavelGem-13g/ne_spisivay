@@ -1,0 +1,14 @@
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.exe.config
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.exe
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.pdb
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.csproj.CoreCompileInputs.cache
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.exe
+C:\Users\pashe\source\repos\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.pdb
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.exe.config
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\bin\Debug\Практика_Классы.pdb
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.csprojAssemblyReference.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.csproj.CoreCompileInputs.cache
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.exe
+C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика_Классы\Практика_Классы\obj\Debug\Практика_Классы.pdb
