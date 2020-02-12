@@ -32,17 +32,17 @@ namespace Практика_Классы
         {
             switch (direction)
             {
-                case 1: Console.WriteLine("x={0}", x);break;
+                case 1: Console.WriteLine("x={0}", x); break;
                 case 2: Console.WriteLine("y={0}", y); break;
                 case 3: Console.WriteLine("z={0}", z); break;
                 default: Console.WriteLine("x={0} y={1} z={2}", x, y, z); ; break;
             }
         }
-        public double rad() 
+        public double rad()
         {
             return Math.Sqrt(x * x + y * y + z * z);
         }
-        public Point3D sum(Point3D obj) 
+        public Point3D sum(Point3D obj)
         {
             return new Point3D(obj.x + this.x, obj.y + this.y, obj.z + this.z);
         }
@@ -69,8 +69,10 @@ namespace Практика_Классы
                 Console.Write("Введите начальное z ");
                 z = int.Parse(Console.ReadLine());
                 //point.startPos(x, y, z);
-                point = new Point3D(x,y,z);
-            }Console.Write("Первая точка "); point.output(0);
+                point = new Point3D(x, y, z);
+            }
+            Console.Write("Первая точка "); point.output(0);
+
 
             Point3D point2;
             do
@@ -89,9 +91,11 @@ namespace Практика_Классы
                 z = int.Parse(Console.ReadLine());
                 //point.startPos(x, y, z);
                 point2 = new Point3D(x, y, z);
-            }Console.Write("Вторая точка "); point2.output(0);
+            }
+            Console.Write("Вторая точка "); point2.output(0);
 
-            int outdirect, direct, delta=0;
+            Point3D sumPoint;
+            int outdirect, direct, delta = 0;
             while (true)
             {
                 Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z. Введите 0 для выхода из программы (первая точка)");
@@ -101,7 +105,8 @@ namespace Практика_Классы
                 {
                     Console.Write("Введите насколько передвинется точка ");
                     delta = int.Parse(Console.ReadLine());
-                }point.movig(direct, delta);
+                }
+                point.movig(direct, delta);
 
                 Console.Write("Введите ось, по которой будет совершаться перемещение: 1 - x, 2 - y, 3 - z. Введите 0 для выхода из программы (вторая точка)");
                 direct = int.Parse(Console.ReadLine());
@@ -110,7 +115,8 @@ namespace Практика_Классы
                 {
                     Console.Write("Введите насколько передвинется точка ");
                     delta = int.Parse(Console.ReadLine());
-                }point2.movig(direct, delta);
+                }
+                point2.movig(direct, delta);
 
                 Console.Write("Введите ось для вывода: 1 - x, 2 - y, 3 - z. Введите 0 для вывода всех переменных (первая точка)");
                 outdirect = int.Parse(Console.ReadLine());
@@ -120,13 +126,13 @@ namespace Практика_Классы
                 outdirect = int.Parse(Console.ReadLine());
                 point2.output(outdirect);
 
-                Console.WriteLine($"Радиус-вектор от начала координат {point.rad()} (первая точка)") ;
+                Console.WriteLine("Радиус-вектор от начала координат {0} (первая точка)",point.rad());
 
                 Console.WriteLine("Суммирование точек (вывод координат новой точки)");
-                Point3D sumPoint = point.sum(point2);
+                sumPoint = point.sum(point2);
                 sumPoint.output(0);
-
             }
+
         }
     }
 }

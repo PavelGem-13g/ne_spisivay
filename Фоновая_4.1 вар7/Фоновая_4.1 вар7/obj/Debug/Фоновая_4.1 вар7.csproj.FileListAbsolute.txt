@@ -1,0 +1,6 @@
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\bin\Debug\Фоновая_4.1 вар7.exe.config
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\bin\Debug\Фоновая_4.1 вар7.exe
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\bin\Debug\Фоновая_4.1 вар7.pdb
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\obj\Debug\Фоновая_4.1 вар7.csprojAssemblyReference.cache
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\obj\Debug\Фоновая_4.1 вар7.exe
+C:\Users\Павел\source\repos\Фоновая_4.1 вар7\Фоновая_4.1 вар7\obj\Debug\Фоновая_4.1 вар7.pdb

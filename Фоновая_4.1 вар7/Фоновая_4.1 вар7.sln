@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Фоновая_4.1 вар7", "Фоновая_4.1 вар7\Фоновая_4.1 вар7.csproj", "{E4D48E72-C6EE-4D90-92F0-1A88941CFAC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4D48E72-C6EE-4D90-92F0-1A88941CFAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D48E72-C6EE-4D90-92F0-1A88941CFAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D48E72-C6EE-4D90-92F0-1A88941CFAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D48E72-C6EE-4D90-92F0-1A88941CFAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13C6006B-ADB7-48B7-A4A7-BE7E2D048F71}
+	EndGlobalSection
+EndGlobal
