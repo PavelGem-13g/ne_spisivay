@@ -5,10 +5,10 @@ namespace Фоновая_4._1_вар7
     {
         private double a;
         private double b;
-        public Eleps(double a, double b)
+        public Eleps(double fullA, double fullB)
         {
-            this.a = a;
-            this.b = b;
+            this.a = fullA / 2;
+            this.b = fullB / 2;
         }
         public Eleps()
         {
@@ -17,11 +17,11 @@ namespace Фоновая_4._1_вар7
         }
         private double excantiatet()
         {
-            return Math.Sqrt(1 - ((b / 2 * b / 2) / (a / 2 * a / 2)));
+            return Math.Sqrt(1 - ((b  * b ) / (a  * a )));
         }
         public double focalParam()
         {
-            return (b / 2 * b / 2) / a / 2;
+            return (b  * b ) / a ;
         }
         public double S()
         {
@@ -29,19 +29,19 @@ namespace Фоновая_4._1_вар7
         }
         public double P()
         {
-            return 4 * (Math.PI * a * b + (a - b) * (a - b) / (a + b));
+            return  (4 *(Math.PI * a * b + (a - b) * (a - b) ))/ (a + b);
         }
         public double A()
         {
-            return a;
+            return a*2;
         }
         public double B()
         {
-            return b;
+            return b*2;
         }
         public double radius(double z)
         {
-            return b / Math.Sqrt(1 - excantiatet() * excantiatet() * Math.Cos(z) * Math.Cos(z));
+            return (b) / Math.Sqrt(1 - excantiatet() * excantiatet() * Math.Cos(z) * Math.Cos(z));
         }
     }
     class Program
@@ -54,9 +54,9 @@ namespace Фоновая_4._1_вар7
             int construction = int.Parse(Console.ReadLine());
             if (construction != 1)
             {
-                Console.Write("Введите длину оси a ");
+                Console.Write("Введите длину (большей) оси a ");
                 a = double.Parse(Console.ReadLine());
-                Console.Write("Введите длину оси b ");
+                Console.Write("Введите длину (меньшей) оси b ");
                 b = double.Parse(Console.ReadLine());
                 oval = new Eleps(a, b); 
             }
