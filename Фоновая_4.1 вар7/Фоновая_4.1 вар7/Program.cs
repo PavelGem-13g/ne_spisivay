@@ -41,7 +41,7 @@ namespace Фоновая_4._1_вар7
         }
         public double radius(double z)
         {
-            return (b) / Math.Sqrt(1 - excantiatet() * excantiatet() * Math.Cos(z) * Math.Cos(z));
+            return (b) / Math.Sqrt(1.00- excantiatet() * excantiatet() * Math.Cos(z) * Math.Cos(z));
         }
     }
     class Program
@@ -67,7 +67,8 @@ namespace Фоновая_4._1_вар7
             Console.WriteLine("Периметр  {0:F3}", oval.P());
             Console.Write("Введите угол (для радиуса) ");
             double ugol = double.Parse(Console.ReadLine());
-            Console.WriteLine("Радиус  {0:F3}", oval.radius(ugol));
+            // 57.2958)
+            Console.WriteLine("Радиус  {0:F3}", oval.radius(ugol*Math.PI/180));
             int choseAB;
             do
             {

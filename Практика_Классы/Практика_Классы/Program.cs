@@ -23,11 +23,44 @@ namespace Практика_Классы
         {
             switch (direction)
             {
-                case 1: this.x += delta; break;
-                case 2: this.y += delta; break;
-                case 3: this.z += delta; break;
+                case 1: this.X += delta; break;
+                case 2: this.Y += delta; break;
+                case 3: this.Z += delta; break;
             }
         }
+        public int X
+        {
+            get { return this.x; }
+            set { if (value > 0) this.x += value; }
+        }
+        public int Y
+        {
+            get { return this.y; }
+            set
+            {
+                if (0 < value && value <= 100) this.y += value;
+                else x = 100;
+            }
+        }
+        public int Z
+        {
+            get { return this.z; }
+            set
+            {
+                if (this.x + this.y > z) this.z += value;
+                else Console.WriteLine("Слишком большое значение x и y, z не изменен");
+            }
+        }
+        public int multiplication
+        {
+            set
+            {
+                this.x *= value;
+                this.y *= value;
+                this.z *= value;
+            }
+        }
+
         public void output(int direction)
         {
             switch (direction)
@@ -45,6 +78,10 @@ namespace Практика_Классы
         public Point3D sum(Point3D obj)
         {
             return new Point3D(obj.x + this.x, obj.y + this.y, obj.z + this.z);
+        }
+        public Point3D sum(int delta)
+        {
+            return new Point3D(this.x + delta, this.y + delta, this.z + delta);
         }
     }
     class Program
@@ -126,10 +163,22 @@ namespace Практика_Классы
                 outdirect = int.Parse(Console.ReadLine());
                 point2.output(outdirect);
 
-                Console.WriteLine("Радиус-вектор от начала координат {0} (первая точка)",point.rad());
+                Console.WriteLine("Радиус-вектор от начала координат {0} (первая точка)", point.rad());
 
-                Console.WriteLine("Суммирование точек (вывод координат новой точки)");
-                sumPoint = point.sum(point2);
+                Console.WriteLine("Введите метод суммирования точек: 1-сложение двух точек, другое число - сложение кооодинат с определенным числом");
+                int chooseSum = int.Parse(Console.ReadLine());
+                if (chooseSum == 1)
+                {
+                    Console.WriteLine("Суммирование точек (вывод координат новой точки)");
+                    sumPoint = point.sum(point2);
+                }
+                else 
+                {
+                    Console.WriteLine("Введите на какое число сместить все координаты");
+                    int deltaSum = int.Parse(Console.ReadLine());
+                    sumPoint = point.sum(deltaSum);
+                }
+
                 sumPoint.output(0);
             }
 
