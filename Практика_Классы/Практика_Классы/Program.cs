@@ -15,9 +15,20 @@ namespace Практика_Классы
         }
         public Point3D(double x, double y, double z)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            try
+            {
+                if (!(x % 5 == 0 && y % 5 == 0 && z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
+                this.x = x;
+                this.y = y;
+                this.z = z;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Ошибка: {0}", error.Message);
+                this.x = x * 5;
+                this.y = y * 5;
+                this.z = z * 5;
+            }
         }
         public void movig(int direction, int delta)
         {
@@ -88,11 +99,22 @@ namespace Практика_Классы
         static void Main(string[] args)
         {
             Point3D point;
-            int x, y, z, createPoint;
+            int x, y, z, createPoint = 0;
             do
             {
-                Console.Write("Введите способ создания точки: 1 - точка находится в пересечении координат, 2 - Вы сами вводите координату (первая точка) ");
-                createPoint = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("Введите способ создания точки: 1 - точка находится в пересечении координат, 2 - Вы сами вводите координату (первая точка) ");
+                    createPoint = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Введено не число");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Введено слишком большое число");
+                }
             } while (!(0 < createPoint && createPoint < 3));
             if (createPoint == 1) point = new Point3D();
             else
@@ -108,12 +130,24 @@ namespace Практика_Классы
             }
             Console.Write("Первая точка "); point.output();
 
-
             Point3D point2;
+            createPoint = 0;
             do
             {
-                Console.Write("Введите способ создания точки: 1 - точка находится в пересечении координат, 2 - Вы сами вводите координату (вторая точка) ");
-                createPoint = int.Parse(Console.ReadLine());
+                try
+                {
+                    Console.Write("Введите способ создания точки: 1 - точка находится в пересечении координат, 2 - Вы сами вводите координату (вторая точка) ");
+                    createPoint = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Введено не число");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Введено слишком большое число");
+                }
+
             } while (!(0 < createPoint && createPoint < 3));
             if (createPoint == 1) point2 = new Point3D();
             else
