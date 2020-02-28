@@ -83,44 +83,63 @@ namespace Фоновая_4._1_вар7
                 if ((b) / Math.Sqrt(1.00 - excantiatet * excantiatet * Math.Cos(z) * Math.Cos(z)) > 0) return (b) / Math.Sqrt(1.00 - excantiatet * excantiatet * Math.Cos(z) * Math.Cos(z));
                 else throw new Exception("Радиус не существует, значение равно 0");
             }
-            catch(Exception error) { Console.WriteLine("Ошибка: {0}", error.Message);return 0; }
+            catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); return 0; }
         }
-
-        }
-        class Program
+        public bool crug
         {
-            static void Main(string[] args)
-            {
-                double a, b;
-                Eleps oval;
-                Console.Write("Использовать стандартный конструктор, 1-да, другая цифра-нет ");
-                int construction = int.Parse(Console.ReadLine());
-                if (construction != 1)
-                {
-                    Console.Write("Введите длину (большей) оси a ");
-                    a = double.Parse(Console.ReadLine());
-                    Console.Write("Введите длину (меньшей) оси b ");
-                    b = double.Parse(Console.ReadLine());
-                    oval = new Eleps(a, b);
-                }
-                else oval = new Eleps();
+            get { return a == b; }
 
-                Console.WriteLine("Фокальный параметр эллипса {0:F3}", oval.focalParam());
-                Console.WriteLine("Площадь  {0:F3}", oval.S());
-                Console.WriteLine("Периметр  {0:F3}", oval.P());
-                Console.Write("Введите угол (для радиуса) ");
-                double ugol = double.Parse(Console.ReadLine());
-                // 57.2958)
-                Console.WriteLine("Радиус  {0:F3}", oval.radius(ugol * Math.PI / 180));
-                int choseAB;
-                do
-                {
-                    Console.WriteLine("Получить a-1 или b-2");
-                    choseAB = int.Parse(Console.ReadLine());
-                } while (!(0 < choseAB && choseAB < 3));
-                if (choseAB == 1) Console.WriteLine("а = {0}", oval.A());
-                if (choseAB == 2) Console.WriteLine("b = {0}", oval.B());
-                Console.ReadKey();
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, b, construction = 1;
+            Eleps oval;
+            Console.Write("Использовать стандартный конструктор, да-1, нет-другая цифра ");
+            try { construction = int.Parse(Console.ReadLine()); }
+            catch (FormatException)
+            {
+                Console.WriteLine("Введено не число, используется стандартный конструктор");
             }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Введено слишком большое число, используется стандартный конструктор");
+            }
+            if (construction != 1)
+            {
+                Console.Write("Введите длину (большей) оси a ");
+                a = double.Parse(Console.ReadLine());
+                Console.Write("Введите длину (меньшей) оси b ");
+                b = double.Parse(Console.ReadLine());
+                oval = new Eleps(a, b);
+            }
+            else oval = new Eleps();
+
+            Console.WriteLine("Фокальный параметр эллипса {0:F3}", oval.focalParam());
+            Console.WriteLine("Площадь  {0:F3}", oval.S);
+            Console.WriteLine("Периметр  {0:F3}", oval.P);
+            Console.Write("Введите угол (для радиуса) ");
+            double ugol = double.Parse(Console.ReadLine());
+            // 57.2958)
+            Console.WriteLine("Радиус  {0:F3}", oval.radius(ugol * Math.PI / 180));
+            int choseAB;
+            do
+            {
+                Console.WriteLine("Получить a-1 или b-2");
+                choseAB = int.Parse(Console.ReadLine());
+            } while (!(0 < choseAB && choseAB < 3));
+            if (choseAB == 1) Console.WriteLine("а = {0}", oval.A);
+            if (choseAB == 2) Console.WriteLine("b = {0}", oval.B);
+            if (oval.crug == true) Console.WriteLine("Элипс - круг");
+            else Console.WriteLine("Элипс не круг");
+            Console.WriteLine("Коэффицен сжатия {0}", oval.szhatie);
+            Console.WriteLine("Фокальная длина {0}", oval.focalL);
+            Console.WriteLine("Перифокусное расстояние {0}", oval.preF);
+            Console.WriteLine("Апофокусное расстояние {0}", oval.apoF);
+            Console.ReadKey();
         }
     }
+}

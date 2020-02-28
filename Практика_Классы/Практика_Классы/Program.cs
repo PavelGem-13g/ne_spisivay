@@ -15,20 +15,9 @@ namespace Практика_Классы
         }
         public Point3D(double x, double y, double z)
         {
-            try
-            {
-                if (!(x % 5 == 0 && y % 5 == 0 && z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
-                this.x = x;
-                this.y = y;
-                this.z = z;
-            }
-            catch (Exception error)
-            {
-                Console.WriteLine("Ошибка: {0}", error.Message);
-                this.x = x * 5;
-                this.y = y * 5;
-                this.z = z * 5;
-            }
+            this.x = x;
+            this.y = y;
+            this.z = z;
         }
         public void movig(int direction, int delta)
         {
@@ -42,15 +31,28 @@ namespace Практика_Классы
         public double X
         {
             get { return this.x; }
-            set { if (value > 0) this.x += value; }
+            set
+            {
+                try { if (value > 0) throw new Exception("Значение меньше нуля!"); this.x += value; }
+                catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); }
+            }
         }
         public double Y
         {
             get { return this.y; }
             set
             {
-                if (0 < value && value <= 100) this.y += value;
-                else x = 100;
+                try
+                {
+                    if (!(0 < value && value <= 100))
+                    {
+                        y = 100;
+                        throw new Exception("Значение не воходит диапазон 0-100? установлено максимальное значение");
+
+                    }
+                    this.y += value;
+                }
+                catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); }
             }
         }
         public double Z
@@ -58,8 +60,8 @@ namespace Практика_Классы
             get { return this.z; }
             set
             {
-                if (this.x + this.y > z) this.z += value;
-                else Console.WriteLine("Слишком большое значение x и y, z не изменен");
+                try { if (!(this.x + this.y > value)) throw new Exception("Значение не воходит больше суммы x и y, значение не изменено"); this.z += value; }
+                catch (Exception error) { Console.WriteLine(error.Message); }
             }
         }
         public double multiplication
@@ -159,6 +161,18 @@ namespace Практика_Классы
                 Console.Write("Введите начальное z ");
                 z = int.Parse(Console.ReadLine());
                 //point.startPos(x, y, z);
+                try
+                {
+                    if (!(x % 5 == 0 && y % 5 == 0 && z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ошибка: {0}", error.Message);
+                    x = x * 5;
+                    y = y * 5;
+                    z = z * 5;
+                }
+
                 point2 = new Point3D(x, y, z);
             }
             Console.Write("Вторая точка "); point2.output();
