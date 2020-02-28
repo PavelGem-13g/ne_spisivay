@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace Фоновая_4._1_вар7
 {
     class Eleps
@@ -85,16 +85,29 @@ namespace Фоновая_4._1_вар7
             }
             catch(Exception error) { Console.WriteLine("Ошибка: {0}", error.Message);return 0; }
         }
+        public bool crug
+        {
+            get{return a==b;}
+            
+        }
 
         }
         class Program
         {
             static void Main(string[] args)
             {
-                double a, b;
+                double a, b,construction=1;
                 Eleps oval;
-                Console.Write("Использовать стандартный конструктор, 1-да, другая цифра-нет ");
-                int construction = int.Parse(Console.ReadLine());
+                Console.Write("Использовать стандартный конструктор, да-1, нет-другая цифра ");
+                 try{construction= int.Parse(Console.ReadLine());}
+                 catch (FormatException)
+                {
+                    Console.WriteLine("Введено не число, используется стандартный конструктор");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Введено слишком большое число, используется стандартный конструктор");
+                }
                 if (construction != 1)
                 {
                     Console.Write("Введите длину (большей) оси a ");
@@ -120,6 +133,12 @@ namespace Фоновая_4._1_вар7
                 } while (!(0 < choseAB && choseAB < 3));
                 if (choseAB == 1) Console.WriteLine("а = {0}", oval.A());
                 if (choseAB == 2) Console.WriteLine("b = {0}", oval.B());
+                if (oval.crug==true)Console.WriteLine("Элипс - круг");
+                else Console.WriteLine("Элипс не круг");
+                Console.WriteLine("Коэффицен сжатия {0}",oval.szhatie);
+                Console.WriteLine("Фокальная длина {0}",oval.focalL);
+                Console.WriteLine("Перифокусное расстояние {0}",oval.preF);
+                Console.WriteLine("Апофокусное расстояние {0}",oval.apoF);
                 Console.ReadKey();
             }
         }
