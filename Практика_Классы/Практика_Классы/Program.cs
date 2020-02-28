@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Практика_Классы
 {
@@ -37,17 +37,17 @@ namespace Практика_Классы
         {
             get { return this.x; }
             set { 
- if (value > 0)  throw new Exception("Слишком большое значение");
-this.x += value; }
+                try{if (value > 0)  throw new Exception("Значение меньше нуля!");this.x += value;}
+                catch(Exception error){Console.WriteLine("Ошибка: {0}", error.Message);}
+             }
         }
         public double Y
         {
             get { return this.y; }
             set
             {
-
-                if (0 < value && value <= 100) this.y += value;
-                else x = 100;
+                try{if (!(0 < value && value <= 100)) throw new Exception("Значение не воходит диапазон 0-100? установлено максимальное значение");this.y += value;}
+                catch(Exception error){Console.WriteLine("Ошибка: {0}", error.Message);y = 100;} 
             }
         }
         public double Z
@@ -55,9 +55,8 @@ this.x += value; }
             get { return this.z; }
             set
             {
-
-                if (this.x + this.y > z) this.z += value;
-                else Console.WriteLine("Слишком большое значение x и y, z не изменен");
+                try{if(!(this.x + this.y > value))throw new Exception("Значение не воходит больше суммы x и y, значение не изменено");this.z += value;}
+                catch(Exception error){Console.WriteLine(error.Message);}
             }
         }
         public double multiplication
