@@ -108,16 +108,6 @@ namespace Фоновая_4._1_вар7
                 Console.WriteLine("Введено слишком большое число, используется стандартный конструктор");
             }
 
-            Console.Write("Использовать стандартный конструктор, да-1, нет-другая цифра ");
-            try { construction = int.Parse(Console.ReadLine()); }
-            catch (FormatException)
-            {
-                Console.WriteLine("Введено не число, используется стандартный конструктор");
-            }
-            catch (OverflowException)
-            {
-                Console.WriteLine("Введено слишком большое число, используется стандартный конструктор");
-            }
             if (construction != 1)
             {
                 Console.Write("Введите длину (большей) оси a ");
