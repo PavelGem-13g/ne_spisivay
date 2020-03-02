@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Практика_Классы
 {
@@ -15,10 +15,22 @@ namespace Практика_Классы
         }
         public Point3D(double x, double y, double z)
         {
+<<<<<<< HEAD
             this.x = x;
             this.y = y;
             this.z = z;
         }
+=======
+            
+         
+                
+                this.x = x;
+                this.y = y;
+                this.z = z;
+            
+         
+        } 
+>>>>>>> 073f9008829745271e9ab2a8473be84da0c4200a
         public void movig(int direction, int delta)
         {
             switch (direction)
@@ -31,17 +43,25 @@ namespace Практика_Классы
         public double X
         {
             get { return this.x; }
+<<<<<<< HEAD
             set
             {
                 try { if (value > 0) throw new Exception("Значение меньше нуля!"); this.x += value; }
                 catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); }
             }
+=======
+            set { 
+                try{if (value > 0)  throw new Exception("Значение меньше нуля!");this.x += value;}
+                catch(Exception error){Console.WriteLine("Ошибка: {0}", error.Message);}
+             }
+>>>>>>> 073f9008829745271e9ab2a8473be84da0c4200a
         }
         public double Y
         {
             get { return this.y; }
             set
             {
+<<<<<<< HEAD
                 try
                 {
                     if (!(0 < value && value <= 100))
@@ -53,6 +73,10 @@ namespace Практика_Классы
                     this.y += value;
                 }
                 catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); }
+=======
+                try{if (!(0 < value && value <= 100)) throw new Exception("Значение не воходит диапазон 0-100? установлено максимальное значение");this.y += value;}
+                catch(Exception error){Console.WriteLine("Ошибка: {0}", error.Message);y = 100;} 
+>>>>>>> 073f9008829745271e9ab2a8473be84da0c4200a
             }
         }
         public double Z
@@ -60,8 +84,13 @@ namespace Практика_Классы
             get { return this.z; }
             set
             {
+<<<<<<< HEAD
                 try { if (!(this.x + this.y > value)) throw new Exception("Значение не воходит больше суммы x и y, значение не изменено"); this.z += value; }
                 catch (Exception error) { Console.WriteLine(error.Message); }
+=======
+                try{if(!(this.x + this.y > value))throw new Exception("Значение не воходит больше суммы x и y, значение не изменено");this.z += value;}
+                catch(Exception error){Console.WriteLine(error.Message);}
+>>>>>>> 073f9008829745271e9ab2a8473be84da0c4200a
             }
         }
         public double multiplication
@@ -162,6 +191,7 @@ namespace Практика_Классы
                 z = int.Parse(Console.ReadLine());
                 //point.startPos(x, y, z);
                 try
+<<<<<<< HEAD
                 {
                     if (!(x % 5 == 0 && y % 5 == 0 && z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
                 }
@@ -172,6 +202,18 @@ namespace Практика_Классы
                     y = y * 5;
                     z = z * 5;
                 }
+=======
+            {
+                if (!(x % 5 == 0 && y % 5 == 0 && z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("Ошибка: {0}", error.Message);
+                x = x * 5;
+                y = y * 5;
+                z = z * 5;
+            }
+>>>>>>> 073f9008829745271e9ab2a8473be84da0c4200a
 
                 point2 = new Point3D(x, y, z);
             }
