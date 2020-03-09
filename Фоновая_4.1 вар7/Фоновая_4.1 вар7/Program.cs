@@ -29,7 +29,7 @@ namespace Фоновая_4._1_вар7
                     Console.WriteLine("Введено слишком большое число");
                 }
             }
-            get { return a - 2; }
+            get { return a * 2; }
         }
         public double B
         {
@@ -42,7 +42,7 @@ namespace Фоновая_4._1_вар7
                 }
                 catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); }
             }
-            get { return b - 2; }
+            get { return b * 2; }
         }
         private double excantiatet
         {
@@ -81,15 +81,14 @@ namespace Фоновая_4._1_вар7
             try
             {
                 if ((b) / Math.Sqrt(1.00 - excantiatet * excantiatet * Math.Cos(z) * Math.Cos(z)) > 0) return (b) / Math.Sqrt(1.00 - excantiatet * excantiatet * Math.Cos(z) * Math.Cos(z));
-                else throw new Exception("Радиус не существует, значение равно 0");
+                else throw new Exception(": Радиус не существует, значение равно 0");
             }
-            catch (Exception error) { Console.WriteLine("Ошибка: {0}", error.Message); return 0; }
+            catch (Exception error) { Console.WriteLine("Ошибка {0}", error.Message); return 0; }
         }
         public bool crug
         {
             get { return a == b; }
         }
-
     }
     class Program
     {
@@ -107,14 +106,32 @@ namespace Фоновая_4._1_вар7
             {
                 Console.WriteLine("Введено слишком большое число, используется стандартный конструктор");
             }
-
             if (construction != 1)
             {
-                Console.Write("Введите длину (большей) оси a ");
-                a = double.Parse(Console.ReadLine());
-                Console.Write("Введите длину (меньшей) оси b ");
-                b = double.Parse(Console.ReadLine());
-                oval = new Eleps(a, b);
+                try
+                {
+                    Console.Write("Введите длину (большей) оси a ");
+                    a = double.Parse(Console.ReadLine());
+                    Console.Write("Введите длину (меньшей) оси b ");
+                    b = double.Parse(Console.ReadLine());
+                    if (a > 100) throw new Exception("Введено слишком большое значение, использован стандартный конструктор");
+                    oval = new Eleps(a, b);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Введено не число, использован стандартный конструктор");
+                    oval = new Eleps();
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Введено слишком большое число, использован стандартный конструктор");
+                    oval = new Eleps();
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine("Ошибка: {0}", error.Message);
+                    oval = new Eleps();
+                }
             }
             else oval = new Eleps();
 
@@ -123,7 +140,6 @@ namespace Фоновая_4._1_вар7
             Console.WriteLine("Периметр  {0:F3}", oval.P);
             Console.Write("Введите угол (для радиуса) ");
             double ugol = double.Parse(Console.ReadLine());
-            // 57.2958)
             Console.WriteLine("Радиус  {0:F3}", oval.radius(ugol * Math.PI / 180));
             int choseAB;
             do
@@ -140,7 +156,6 @@ namespace Фоновая_4._1_вар7
             Console.WriteLine("Перифокусное расстояние {0}", oval.preF);
             Console.WriteLine("Апофокусное расстояние {0}", oval.apoF);
             Console.ReadKey();
-
         }
     }
 }
