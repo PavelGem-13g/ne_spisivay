@@ -15,6 +15,19 @@ namespace Фоновая_4._1_вар7
             this.a = 5;
             this.b = 2;
         }
+        public static Eleps creating(int a, int b)
+        {
+            try
+            {
+                if (!(a > 0 && b > 0)) throw new Exception("Нельзя создать эллипс");
+                return new Eleps(a,b);
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return new Eleps();
+            }
+        }
         public double A
         {
             set
