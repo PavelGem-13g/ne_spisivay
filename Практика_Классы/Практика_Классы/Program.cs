@@ -20,23 +20,22 @@ namespace Практика_Классы
             this.y = y;
             this.z = z;
         }
-        public static Point3D dot()
+        public static Point3D dot(int x, int y, int z)
         {
             Console.WriteLine("Создайте точку, у которой хотя бы одна координата кратна 5");
-            Console.Write("Введите начальное x ");
-            int x = int.Parse(Console.ReadLine());
-            Console.Write("Введите начальное y ");
-            int y = int.Parse(Console.ReadLine());
-            Console.Write("Введите начальное z ");
-            int z = int.Parse(Console.ReadLine());
             //point.startPos(x, y, z);               
             try
             {
-                if (!(x % 5 == 0 || y % 5 == 0 || z % 5 == 0)) throw new Exception("Введены числа некратные 5, все числа умножаны на 5");
+                if (!(x % 5 == 0 || y % 5 == 0 || z % 5 == 0)) throw new Exception("Введены числа некратные 5, использован конструктор по умолчанию");
             }
-            catch (Exception error)
+            catch(Exception error)
             {
                 Console.WriteLine("Ошибка: {0}", error.Message);
+                return new Point3D();
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка, использован конструктор по умолчанию");
                 return new Point3D();
             }
             return new Point3D(x, y, z);
