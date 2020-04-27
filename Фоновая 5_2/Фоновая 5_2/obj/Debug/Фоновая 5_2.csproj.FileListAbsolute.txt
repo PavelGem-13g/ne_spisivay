@@ -1,0 +1,7 @@
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\bin\Debug\Фоновая 5_2.exe.config
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\bin\Debug\Фоновая 5_2.exe
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\bin\Debug\Фоновая 5_2.pdb
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\obj\Debug\Фоновая 5_2.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\obj\Debug\Фоновая 5_2.csproj.CoreCompileInputs.cache
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\obj\Debug\Фоновая 5_2.exe
+C:\Users\pashe\source\repos\Фоновая 5_2\Фоновая 5_2\obj\Debug\Фоновая 5_2.pdb
