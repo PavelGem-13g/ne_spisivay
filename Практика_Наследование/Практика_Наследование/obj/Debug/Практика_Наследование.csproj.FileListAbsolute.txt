@@ -1,0 +1,7 @@
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\bin\Debug\Практика_Наследование.exe.config
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\bin\Debug\Практика_Наследование.exe
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\bin\Debug\Практика_Наследование.pdb
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\obj\Debug\Практика_Наследование.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\obj\Debug\Практика_Наследование.csproj.CoreCompileInputs.cache
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\obj\Debug\Практика_Наследование.exe
+C:\Users\pashe\source\repos\Практика_Наследование\Практика_Наследование\obj\Debug\Практика_Наследование.pdb

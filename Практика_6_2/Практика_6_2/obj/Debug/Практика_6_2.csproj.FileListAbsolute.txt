@@ -1,0 +1,7 @@
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\obj\Debug\Практика_6_2.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\obj\Debug\Практика_6_2.csproj.CoreCompileInputs.cache
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\bin\Debug\Практика_6_2.exe.config
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\bin\Debug\Практика_6_2.exe
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\bin\Debug\Практика_6_2.pdb
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\obj\Debug\Практика_6_2.exe
+C:\Users\pashe\source\repos\Практика_6_2\Практика_6_2\obj\Debug\Практика_6_2.pdb
