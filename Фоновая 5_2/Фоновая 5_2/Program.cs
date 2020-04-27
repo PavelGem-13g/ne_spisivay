@@ -38,6 +38,10 @@ namespace Фоновая_5_2
         {
             get { return mass + cargoMass; }
         }
+        public int CarryCap
+        {
+            get { return carryCap; }
+        }
         virtual public int CargoMass
         {
             get { return cargoMass; }
@@ -395,9 +399,15 @@ namespace Фоновая_5_2
             Truck truck = CreatingExtraTruck();
             truck.Description();
             truck.output();
-            int fuelMass;
-            do { try { fuelMass = int.Parse(Console.ReadLine()); if (!(0 < fuelMass && fuelMass < 4)) throw new Exception("Введите чило в дапазоне 1-3"); } catch (Exception error) { Console.WriteLine(error.Message); } } while (!(0 < fuelMass && fuelMass < 4));
-
+            int fuelMass=0;
+            do {
+                try {
+                    fuelMass = int.Parse(Console.ReadLine());
+                    if (!(fuelMass+truck.CargoMass<truck.CarryCap)) throw new Exception("Сумма массы бензина и массы груза не должна превышать грузоподъёмность");
+                   if(fuelMass<0) throw new Exception("Это значение не может быть отрицательным");
+                } catch (Exception error) { Console.WriteLine(error.Message); }
+            } while (!(fuelMass + truck.CargoMass < truck.CarryCap && fuelMass>=0));
+            truck.fuelS(fuelMass);
             Console.ReadKey();
         }
     }
