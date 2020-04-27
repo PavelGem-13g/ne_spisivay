@@ -390,11 +390,13 @@ namespace Фоновая_5_2
             {
                 i.output();
             }
-            Console.WriteLine("\n\n Значения массива");
+            Console.WriteLine("\n\n Значения отдельного объекта()");
             Console.WriteLine("_________________________________________________________________________________________________________");
-            Truck truck = new Truck();
+            Truck truck = CreatingExtraTruck();
             truck.Description();
             truck.output();
+            int fuelMass;
+            do { try { fuelMass = int.Parse(Console.ReadLine()); if (!(0 < fuelMass && fuelMass < 4)) throw new Exception("Введите чило в дапазоне 1-3"); } catch (Exception error) { Console.WriteLine(error.Message); } } while (!(0 < fuelMass && fuelMass < 4));
 
             Console.ReadKey();
         }
