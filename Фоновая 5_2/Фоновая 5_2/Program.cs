@@ -34,6 +34,10 @@ namespace Фоновая_5_2
             carryCap = 1000;
             cargoMass = 500;
         }
+        virtual public void Description()
+        {
+            Console.WriteLine("Это Description класса - одителя");
+        }
         virtual public int fullMass
         {
             get { return mass + cargoMass; }
@@ -111,7 +115,7 @@ namespace Фоновая_5_2
                 return mass + cargoMass + 70 + 600 * wheel + wagonsNumber * 23000;
             }
         }
-        public void Description()
+        override public void Description()
         {
             Console.WriteLine("Грузовой поезд — группа грузовых вагонов во главе с локомотивом. Поезд предназначен для перевозки грузов. Устаревшее название — товарный поезд, в просторечии товарняк.");
         }
@@ -144,7 +148,7 @@ namespace Фоновая_5_2
             this.drivers = drivers;
         }
 
-        virtual public void Description()
+        override public void Description()
         {
             Console.WriteLine("Грузовой автомобиль — автомобиль, предназначенный для перевозки грузов в кузове или на грузовой платформе. ");
         }
@@ -157,11 +161,28 @@ namespace Фоновая_5_2
         }
         public override void fuelS(int benzMass)
         {
-            double ro, lamdda;
-            lamdda = Convert.ToDouble(Console.ReadLine());
-            double kpd = double.Parse(Console.ReadLine());
-            double koefTreniya = double.Parse(Console.ReadLine());
-            Console.WriteLine((lamdda * benzMass * kpd) / (fullMass * 10 * koefTreniya));
+            double ro = 0, lamdda = 0; double kpd = 0; double koefTreniya = 0; double g = 0;
+            do
+            {
+                try
+                {
+                    //этот код был написан ьез использования мыши
+                    Console.Write("Введите удельную теплоту сгорания ");
+                    lamdda = Convert.ToDouble(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите КПД двигателя ");
+                    kpd = double.Parse(Console.ReadLine()); if (kpd < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите коэф трения ");
+                    koefTreniya = double.Parse(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите g ");
+                    g = double.Parse(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine(error.Message);
+                }
+
+            } while (!(lamdda > 0d && kpd > 0 && koefTreniya > 0 && g > 0));
+            Console.WriteLine("Запас хода рвен {0:F2}", (lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
         }
     }
     class PickUp : Truck
@@ -193,12 +214,28 @@ namespace Фоновая_5_2
         }
         override public void fuelS(int benzMass)
         {
-            double ro, lamdda;
-            lamdda = Convert.ToDouble(Console.ReadLine());
-            double kpd = double.Parse(Console.ReadLine());
-            double koefTreniya = double.Parse(Console.ReadLine());
-            double g = double.Parse(Console.ReadLine());
-            Console.WriteLine((lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
+            double ro = 0, lamdda = 0; double kpd = 0; double koefTreniya = 0; double g = 0;
+            do
+            {
+                try
+                {
+                    //этот код был написан ьез использования мыши
+                    Console.Write("Введите удельную теплоту сгорания ");
+                    lamdda = Convert.ToDouble(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите КПД двигателя ");
+                    kpd = double.Parse(Console.ReadLine()); if (kpd < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите коэф трения ");
+                    koefTreniya = double.Parse(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                    Console.Write("Введите g ");
+                    g = double.Parse(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                }
+                catch (Exception error)
+                {
+                    Console.WriteLine(error.Message);
+                }
+
+            } while (!(lamdda > 0d && kpd > 0 && koefTreniya > 0 && g > 0));
+            Console.WriteLine("Запас хода рвен {0:F2}", (lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
         }
         override public void Description()
         {
@@ -245,7 +282,7 @@ namespace Фоновая_5_2
                 {
                     //этот код был написан ьез использования мыши
                     Console.Write("Введите удельную теплоту сгорания ");
-                    lamdda = Convert.ToDouble(Console.ReadLine());if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
+                    lamdda = Convert.ToDouble(Console.ReadLine()); if (lamdda < 0) throw new Exception("Это значение не может быть отрицательным");
                     Console.Write("Введите КПД двигателя ");
                     kpd = double.Parse(Console.ReadLine()); if (kpd < 0) throw new Exception("Это значение не может быть отрицательным");
                     Console.Write("Введите коэф трения ");
@@ -259,7 +296,7 @@ namespace Фоновая_5_2
                 }
 
             } while (!(lamdda > 0d && kpd > 0 && koefTreniya > 0 && g > 0));
-            Console.WriteLine("Запас хода рвен "+(lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
+            Console.WriteLine("Запас хода рвен {0:F2}", (lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
         }
     }
     class Program
@@ -393,6 +430,8 @@ namespace Фоновая_5_2
             int n;
             int.TryParse(Console.ReadLine(), out n);
             CargoVehicles[] arr = new CargoVehicles[n];
+            Console.WriteLine("Заполнение массива");
+            Console.WriteLine("_________________________________________________________________________________________________________");
             for (int i = 0; i < arr.Length; i++)
             {
                 int temp = 0;
@@ -404,38 +443,51 @@ namespace Фоновая_5_2
                 if (temp == 3) arr[i] = CreatingTrain();
 
             }
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("Значения массива");
             Console.WriteLine("_________________________________________________________________________________________________________");
             foreach (CargoVehicles i in arr)
             {
                 i.output();
-            }
-            Console.WriteLine("\n\n Значения отдельного объекта(класса ExtraTruck)");
-            Console.WriteLine("_________________________________________________________________________________________________________");
-            Truck truck = CreatingExtraTruck();
-            truck.Description();
-            truck.output();
-            Console.Write("Измените массу груза");
-            int tempCargoMass = 0;
-            do { try { tempCargoMass = int.Parse(Console.ReadLine());
-                    if (tempCargoMass>truck.CarryCap) throw new Exception("Масса груза не может быть больше грузоподъемности");
-                    if (tempCargoMass < 0) throw new Exception("Это значение не может быть отрицательным");
-                } catch (Exception error) { Console.WriteLine(error.Message); } } while (tempCargoMass > truck.CarryCap || tempCargoMass<0);
-
-            int fuelMass = 0;
-            Console.Write("Введите значение массы бензина ");
-            do
-            {
-                try
+                i.Description();
+                Console.Write("Измените массу груза");
+                int tempCargoMass = 0;
+                do
                 {
-                    fuelMass = int.Parse(Console.ReadLine());
-                    if (fuelMass + truck.CargoMass > truck.CarryCap) throw new Exception("Сумма массы бензина и массы груза не должна превышать грузоподъёмность");
-                    if (fuelMass < 0) throw new Exception("Это значение не может быть отрицательным");
-                }
-                catch (Exception error) { Console.WriteLine(error.Message); }
-            } while (!(fuelMass + truck.CargoMass < truck.CarryCap && fuelMass >= 0));
-            truck.fuelS(fuelMass);
+                    try
+                    {
+                        tempCargoMass = int.Parse(Console.ReadLine());
+                        if (tempCargoMass > i.CarryCap) throw new Exception("Масса груза не может быть больше грузоподъемности");
+                        if (tempCargoMass < 0) throw new Exception("Это значение не может быть отрицательным");
+                    }
+                    catch (Exception error) { Console.WriteLine(error.Message); }
+                } while (tempCargoMass > i.CarryCap || tempCargoMass < 0);
+
+                int fuelMass = 0;
+                Console.Write("Введите значение массы бензина ");
+                do
+                {
+                    try
+                    {
+                        fuelMass = int.Parse(Console.ReadLine());
+                        if (fuelMass + i.CargoMass > i.CarryCap) throw new Exception("Сумма массы бензина и массы груза не должна превышать грузоподъёмность");
+                        if (fuelMass < 0) throw new Exception("Это значение не может быть отрицательным");
+                    }
+                    catch (Exception error) { Console.WriteLine(error.Message); }
+                } while (!(fuelMass + i.CargoMass < i.CarryCap && fuelMass >= 0));
+                i.fuelS(fuelMass);
+            }
+
+            /*Console.WriteLine("\n\n Значения отдельного объекта(класса ExtraTruck)");
+            Console.WriteLine("_________________________________________________________________________________________________________");*//*
+            Truck truck = CreatingExtraTruck();*//*
+            truck.Description();
+            truck.output();*/
+
+
+
+
+
             Console.ReadKey();
         }
     }
