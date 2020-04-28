@@ -411,14 +411,20 @@ namespace Фоновая_5_2
             {
                 i.output();
             }
-            Console.WriteLine("\n\n Значения отдельного объекта()");
+            Console.WriteLine("\n\n Значения отдельного объекта(класса ExtraTruck)");
             Console.WriteLine("_________________________________________________________________________________________________________");
             Truck truck = CreatingExtraTruck();
             truck.Description();
             truck.output();
+            Console.Write("Измените массу груза");
+            int tempCargoMass = 0;
+            do { try { tempCargoMass = int.Parse(Console.ReadLine());
+                    if (tempCargoMass>truck.CarryCap) throw new Exception("Масса груза не может быть больше грузоподъемности");
+                    if (tempCargoMass < 0) throw new Exception("Это значение не может быть отрицательным");
+                } catch (Exception error) { Console.WriteLine(error.Message); } } while (tempCargoMass > truck.CarryCap || tempCargoMass<0);
+
             int fuelMass = 0;
-            Console.Write("Введите значение массы бензина "
-                );
+            Console.Write("Введите значение массы бензина ");
             do
             {
                 try
