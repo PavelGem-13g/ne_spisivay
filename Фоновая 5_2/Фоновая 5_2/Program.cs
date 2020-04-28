@@ -238,11 +238,15 @@ namespace Фоновая_5_2
         }
         override public void fuelS(int benzMass)
         {
-            double ro, lamdda;
+            double ro=0, lamdda=0; double kpd=0; double koefTreniya=0;double g=0;
+            do
+            {
+
+            } while (lamdda>0d &&kpd>0);
             lamdda = Convert.ToDouble(Console.ReadLine());
-            double kpd = double.Parse(Console.ReadLine());
-            double koefTreniya = double.Parse(Console.ReadLine());
-            double g = double.Parse(Console.ReadLine());
+            kpd = double.Parse(Console.ReadLine());
+            koefTreniya = double.Parse(Console.ReadLine());
+            g= double.Parse(Console.ReadLine());
             Console.WriteLine((lamdda * benzMass * kpd) / (fullMass * g * koefTreniya));
         }
     }
@@ -374,7 +378,8 @@ namespace Фоновая_5_2
         static void Main(string[] args)
         {
             Console.Write("Введите длину массива: ");
-            int n = int.Parse(Console.ReadLine());
+            int n; 
+            int.TryParse(Console.ReadLine(),out n);
             CargoVehicles[] arr = new CargoVehicles[n];
             for (int i = 0; i < arr.Length; i++)
             {
@@ -400,11 +405,13 @@ namespace Фоновая_5_2
             truck.Description();
             truck.output();
             int fuelMass=0;
+            Console.WriteLine("Введите значение массы бензина "
+                );
             do {
                 try {
                     fuelMass = int.Parse(Console.ReadLine());
-                    if (!(fuelMass+truck.CargoMass<truck.CarryCap)) throw new Exception("Сумма массы бензина и массы груза не должна превышать грузоподъёмность");
-                   if(fuelMass<0) throw new Exception("Это значение не может быть отрицательным");
+                    if (fuelMass+truck.CargoMass>truck.CarryCap) throw new Exception("Сумма массы бензина и массы груза не должна превышать грузоподъёмность");
+                    if(fuelMass<0) throw new Exception("Это значение не может быть отрицательным");
                 } catch (Exception error) { Console.WriteLine(error.Message); }
             } while (!(fuelMass + truck.CargoMass < truck.CarryCap && fuelMass>=0));
             truck.fuelS(fuelMass);
