@@ -462,6 +462,7 @@ namespace Фоновая_5_2
                     }
                     catch (Exception error) { Console.WriteLine(error.Message); }
                 } while (tempCargoMass > i.CarryCap || tempCargoMass < 0);
+                i.CargoMass = tempCargoMass;
                 Console.WriteLine("Новая масса груза ТС {0:F2}", i.CargoMass);
                 Console.WriteLine("Полная масса ТС {0:F2}", i.fullMass);
 
