@@ -10,15 +10,33 @@ using System.Windows.Forms;
 
 namespace Практика_15_4
 {
-    public partial class Form1 : Form
+    public class UnHappy
     {
         int attemp;
         int unHappyAttemp;
+        public UnHappy()
+        {
+            attemp = 0;
+            unHappyAttemp = 0;
+        }
+        public int  Attemp
+        {
+            get { return attemp; }
+            set { attemp = value; }
+        }
+        public int UnHappyAttemp
+        {
+            get { return unHappyAttemp; }
+            set { unHappyAttemp = value; }
+        }
+    }
+    public partial class Form1 : Form
+    {
+        UnHappy unHappy = new UnHappy();
         public Form1()
         {
             InitializeComponent();
-            attemp = 0;
-            unHappyAttemp = 0;
+            unHappy = new UnHappy();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,7 +48,7 @@ namespace Практика_15_4
         {
             int a;
             Random random = new Random();
-            if (int.TryParse(textBox.Text, out a)&& 0<=a&&a<10&&attemp>=0)
+            if (int.TryParse(textBox.Text, out a)&& 0<=a&&a<10&& unHappy.Attemp >= 0)
             {//
                 resultText.Location = new Point(resultText.Location.X+14,resultText.Location.Y);
                 if (a == random.Next(0, 10))
@@ -39,18 +57,18 @@ namespace Практика_15_4
                 }
                 else 
                 {
-                    unHappyAttemp++;
+                    unHappy.UnHappyAttemp++;
                     resultText.Text = "Результат: число не угадано";
                 }
-                attemp++;
+                unHappy.Attemp++;
             }
             else 
             {
                 resultText.Text = "Ошибка: введите число";
             }
-            if (attemp >= 10) 
+            if (unHappy.Attemp >= 10) 
             {
-                resultText.Text = "Результат: " + (double)unHappyAttemp / 10;
+                resultText.Text = "Результат: " + (double)unHappy.UnHappyAttemp / 10;
             }
         }
 
