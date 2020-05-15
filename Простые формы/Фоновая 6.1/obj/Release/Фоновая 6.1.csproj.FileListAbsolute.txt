@@ -1,0 +1,5 @@
+C:\Users\pashe\source\repos\Простые формы\Фоновая 6.1\obj\Release\Фоновая 6.1.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\Простые формы\Фоновая 6.1\obj\Release\Фоновая_6._1.Form1.resources
+C:\Users\pashe\source\repos\Простые формы\Фоновая 6.1\obj\Release\Фоновая_6._1.Properties.Resources.resources
+C:\Users\pashe\source\repos\Простые формы\Фоновая 6.1\obj\Release\Фоновая 6.1.csproj.GenerateResource.cache
+C:\Users\pashe\source\repos\Простые формы\Фоновая 6.1\obj\Release\Фоновая 6.1.csproj.CoreCompileInputs.cache
