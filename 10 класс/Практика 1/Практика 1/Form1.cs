@@ -16,7 +16,7 @@ namespace Практика_1
         public Form1()
         {
             InitializeComponent();
-            points = new Point[]{new Point(containers.Panel2.Width/3, containers.Panel2.Height/2),new Point(containers.Panel2.Width/3*2, containers.Panel2.Height/2),new Point(200, 5)
+            points = new Point[]{new Point(containers.Panel2.Width/4, containers.Panel2.Height/5*4),new Point(containers.Panel2.Width/4*3, containers.Panel2.Height/5*4),new Point(containers.Panel2.Width/2, containers.Panel2.Height/5)
             };
         }
 
@@ -27,7 +27,17 @@ namespace Практика_1
 
         private void button_Click(object sender, EventArgs e)
         {
+            Increase_triangle();
+            Invalidate();
+        }
 
+        void Increase_triangle() 
+        {
+            for (int i = 0; i < points.Length; i++)
+            {
+                points[i].X += 20;
+                points[i].Y += 20;
+            }
         }
     }
 }
