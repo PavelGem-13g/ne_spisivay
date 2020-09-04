@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Практика_1
@@ -16,13 +10,16 @@ namespace Практика_1
         public Form1()
         {
             InitializeComponent();
-            points = new Point[]{new Point(containers.Panel2.Width/4, containers.Panel2.Height/5*4),new Point(containers.Panel2.Width/4*3, containers.Panel2.Height/5*4),new Point(containers.Panel2.Width/2, containers.Panel2.Height/5)
-            };
+            points = new Point[] { 
+                new Point(containers.Panel2.Width / 4, containers.Panel2.Height / 5 * 4), 
+                new Point(containers.Panel2.Width / 4 * 3, containers.Panel2.Height / 5 * 4), 
+                new Point(containers.Panel2.Width / 2, containers.Panel2.Height / 5) };
+
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillPolygon(new SolidBrush(Color.Green),points);
+            e.Graphics.FillPolygon(new SolidBrush(Color.Green), points);
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -31,13 +28,11 @@ namespace Практика_1
             Invalidate();
         }
 
-        void Increase_triangle() 
+        void Increase_triangle()
         {
-            for (int i = 0; i < points.Length; i++)
-            {
-                points[i].X += 20;
-                points[i].Y += 20;
-            }
+            points[0] = new Point(points[0].X - 5, points[0].Y + 5);
+            points[1] = new Point(points[1].X + 5, points[1].Y + 5);
+            points[2] = new Point(points[2].X - 5, points[2].Y - 5);
         }
     }
 }
