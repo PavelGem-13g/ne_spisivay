@@ -28,54 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.containers = new System.Windows.Forms.SplitContainer();
+            this.button = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.containers)).BeginInit();
+            this.containers.Panel1.SuspendLayout();
+            this.containers.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // containers
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
+            resources.ApplyResources(this.containers, "containers");
+            this.containers.Name = "containers";
             // 
-            // splitContainer1.Panel1
+            // containers.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 188;
-            this.splitContainer1.TabIndex = 0;
+            this.containers.Panel1.Controls.Add(this.button);
             // 
-            // button1
+            // containers.Panel2
             // 
-            this.button1.Location = new System.Drawing.Point(61, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.containers.Panel2.BackColor = System.Drawing.Color.LemonChiffon;
+            this.containers.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            // 
+            // button
+            // 
+            resources.ApplyResources(this.button, "button");
+            this.button.Name = "button";
+            this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.containers);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.containers.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.containers)).EndInit();
+            this.containers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SplitContainer containers;
+        private System.Windows.Forms.Button button;
     }
 }
 
