@@ -68,5 +68,14 @@ namespace Практика_1.Properties {
                 return ResourceManager.GetStream("music", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream s {
+            get {
+                return ResourceManager.GetStream("s", resourceCulture);
+            }
+        }
     }
 }

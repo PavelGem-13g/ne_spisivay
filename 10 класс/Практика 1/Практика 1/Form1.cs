@@ -8,7 +8,7 @@ namespace Практика_1
     public partial class Form1 : Form
     {
         Point[] points;
-        //SoundPlayer soundPlayer = new SoundPlayer();
+        SoundPlayer soundPlayer = new SoundPlayer();
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace Практика_1
                 new Point(containers.Panel2.Width / 4 * 3, containers.Panel2.Height / 5 * 4),
                 new Point(containers.Panel2.Width / 2, containers.Panel2.Height / 5) };
             //soundPlayer  = new SoundPlayer();
-            //soundPlayer.Stream = Properties.Resources.music;
+            soundPlayer.Stream = Properties.Resources.s;
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
@@ -28,7 +28,7 @@ namespace Практика_1
         private void button_Click(object sender, EventArgs e)
         {
             Increase_triangle();
-            //soundPlayer.Play();
+            soundPlayer.Play();
         }
 
         void Increase_triangle()
