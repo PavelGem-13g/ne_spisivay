@@ -18,3 +18,13 @@ C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика 1
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика 17\Практика 17\obj\Debug\Практика 17.csproj.CoreCompileInputs.cache
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика 17\Практика 17\obj\Debug\Практика 17.exe
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Практика 17\Практика 17\obj\Debug\Практика 17.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\bin\Debug\Практика 17.exe.config
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\bin\Debug\Практика 17.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\bin\Debug\Практика 17.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика 17.csprojAssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика_17.Form1.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика_17.Properties.Resources.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика 17.csproj.GenerateResource.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика 17.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика 17.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика 17\Практика 17\obj\Debug\Практика 17.pdb
