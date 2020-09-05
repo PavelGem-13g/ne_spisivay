@@ -88,8 +88,8 @@ namespace Практика_1
                 B = new Point(containers.Panel2.Width,B.Y);
             }
 
-            containers.Panel2.Invalidate();
             Lable_Update();
+            containers.Panel2.Invalidate();
         }
     }
 }
