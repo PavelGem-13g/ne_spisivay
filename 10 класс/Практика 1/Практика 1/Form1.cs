@@ -7,22 +7,30 @@ namespace Практика_1
 {
     public partial class Form1 : Form
     {
-        Point[] points;
-        SoundPlayer soundPlayer = new SoundPlayer();
+        Point A;
+        Point B;
+        Point C;
+
+        int delta;
+
+        SoundPlayer soundPlayer;
         public Form1()
         {
             InitializeComponent();
-            points = new Point[] {
-                new Point(containers.Panel2.Width / 4, containers.Panel2.Height / 5 * 4),
-                new Point(containers.Panel2.Width / 4 * 3, containers.Panel2.Height / 5 * 4),
-                new Point(containers.Panel2.Width / 2, containers.Panel2.Height / 5) };
-            //soundPlayer  = new SoundPlayer();
+            A = new Point(containers.Panel2.Width / 4, containers.Panel2.Height / 5 * 4);
+            B = new Point(containers.Panel2.Width / 4 * 3, containers.Panel2.Height / 5 * 4);
+            C = new Point(containers.Panel2.Width / 2, containers.Panel2.Height / 5);
+            Lable_Update();
+            soundPlayer  = new SoundPlayer();
             soundPlayer.Stream = Properties.Resources.s;
+            delta = 5;
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
+            Point[] points = new Point[] { A, B, C };
             e.Graphics.FillPolygon(new SolidBrush(Color.Green), points);
+            ;
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -31,30 +39,57 @@ namespace Практика_1
             soundPlayer.Play();
         }
 
+        void Lable_Update() 
+        {
+            lable_A.Location = new Point(A.X,A.Y-lable_A.Size.Height);
+            label_B.Location = new Point(B.X-label_B.Size.Width, B.Y-label_B.Size.Height);
+            label_C.Location = new Point(C.X-label_C.Size.Width/2, C.Y);
+        }
+
         void Increase_triangle()
         {
-            if (points[0].X > 0)
+            if (A.X > 0)
             {
-                points[0] = new Point(points[0].X - 5, points[0].Y);
+                A = new Point(A.X - delta, A.Y);
             }
-            if (points[0].Y < containers.Panel2.Height)
+            if (A.Y < containers.Panel2.Height)
             {
-                points[0] = new Point(points[0].X, points[0].Y + 5);
+                A = new Point(A.X, A.Y + delta);
             }
-            if (points[1].X < containers.Panel2.Width)
+            if (B.X < containers.Panel2.Width)
             {
-                points[1] = new Point(points[1].X + 5, points[1].Y);
+                B = new Point(B.X + delta, B.Y);
             }
-            if (points[1].Y < containers.Panel2.Height)
+            if (B.Y < containers.Panel2.Height)
             {
-                points[1] = new Point(points[1].X, points[1].Y + 5);
+                B = new Point(B.X, B.Y + delta);
             }
-            if (points[2].Y > 0)
+            if (C.Y > 0)
             {
-                points[2] = new Point(points[2].X, points[2].Y - 5);
+                C = new Point(C.X, C.Y - delta);
+            }
+
+            Lable_Update();
+            containers.Panel2.Invalidate();
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            if (A.Y > containers.Panel2.Height)
+            {
+                A = new Point(A.X,containers.Panel2.Height);
+            }            
+            if (B.Y > containers.Panel2.Height)
+            {
+                B = new Point(B.X,containers.Panel2.Height);
+            }            
+            if (B.X > containers.Panel2.Width)
+            {
+                B = new Point(containers.Panel2.Width,B.Y);
             }
 
             containers.Panel2.Invalidate();
+            Lable_Update();
         }
     }
 }
