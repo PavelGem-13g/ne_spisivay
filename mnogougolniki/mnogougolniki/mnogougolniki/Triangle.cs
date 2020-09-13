@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace mnogougolniki
 {
-    class Triangle
+    class Triangle : Shape
     {
+        public Triangle(int x, int y) : base(x, y)
+        {
+
+        }
     }
 }

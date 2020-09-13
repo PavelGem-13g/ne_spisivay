@@ -13,21 +13,17 @@ namespace mnogougolniki
         static Shape()
         {
             R = 1;
-            lineColor = Color.Black;
-            fillColor = Color.Black;
         }
-        public Shape(int x, int y, int R, Color lineColor, Color fillColor)
+        public Shape(int x, int y)
         {
             this.x = x;
             this.y = y;
-            this.R = R;
-
         }
         public virtual void Draw(Graphics g)
         {
-            Application.Exit();
+            g.Dispose();
         }
-        public virtual bool IsInside(Point pos)
+        public virtual bool IsInside(Point mousePosition)
         {
             return true;
         }
