@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
 
 namespace mnogougolniki
@@ -31,14 +23,14 @@ namespace mnogougolniki
             }*/
             foreach (var item in shapes)
             {
-                if (item.IsMovable) 
+                if (item.IsMovable)
                 {
                     item.X = e.X;
                     item.Y = e.Y;
                 }
             }
             Refresh();
-            
+
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -48,16 +40,30 @@ namespace mnogougolniki
                 circle.IsMovable = true;
             }*/
             //наработки для коллекцией 
-            foreach (var item in shapes)
+            if (MouseButtons.Left == e.Button)
             {
-                if (item.IsInside(e.Location))
+                foreach (var item in shapes)
                 {
-                    item.IsMovable = true;
+                    if (item.IsInside(e.Location))
+                    {
+                        item.IsMovable = true;
+                    }
+                }
+                if (shapes.Count == 0)
+                {
+                    shapes.Add(new Circle(e.Location.X, e.Location.Y));
                 }
             }
-            if (shapes.Count == 0) 
+            if (MouseButtons.Right == e.Button)
             {
-                shapes.Add(new Circle(e.Location.X, e.Location.Y));
+                foreach (var item in shapes)
+                {
+                    if (item.IsInside(e.Location))
+                    {
+                        shapes.Remove(item);
+                        break;
+                    }
+                }
             }
         }
 
@@ -65,21 +71,24 @@ namespace mnogougolniki
         {
             //circle.IsMovable = false;
             //наработка для коллекции
-            int k = 0;
-            foreach (var item in shapes)
+            if (MouseButtons.Left == e.Button)
             {
-                if (item.IsMovable) 
+                int k = 0;
+                foreach (var item in shapes)
                 {
-                    k++;
+                    if (item.IsMovable)
+                    {
+                        k++;
+                    }
                 }
-            }
-            if (k.Equals(0)) 
-            {
-                shapes.Add(new Circle(e.X, e.Y));
-            }
-            foreach (var item in shapes)
-            {
-                item.IsMovable = false;
+                if (k.Equals(0))
+                {
+                    shapes.Add(new Circle(e.X, e.Y));
+                }
+                foreach (var item in shapes)
+                {
+                    item.IsMovable = false;
+                }
             }
         }
 
