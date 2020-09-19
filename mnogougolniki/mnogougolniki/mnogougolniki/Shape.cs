@@ -8,6 +8,7 @@ namespace mnogougolniki
         static int r;
         static Color lineColor;
         static Color fillColor;
+        bool isMovable;
         int x;
         int y;
         public int X 
@@ -29,6 +30,17 @@ namespace mnogougolniki
             get 
             {
                 return r;
+            }
+        }
+        public bool IsMovable
+        {
+            get 
+            {
+                return isMovable;
+            }
+            set 
+            {
+                isMovable = value;
             }
         }
         public Color LineColor
