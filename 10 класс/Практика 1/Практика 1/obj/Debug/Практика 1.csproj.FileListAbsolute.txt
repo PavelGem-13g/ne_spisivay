@@ -8,3 +8,13 @@ C:\Users\pashe\Documents\GitHub\ne_spisivay\10 класс\Практика 1\П�
 C:\Users\pashe\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.csproj.CoreCompileInputs.cache
 C:\Users\pashe\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.exe
 C:\Users\pashe\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\bin\Debug\Практика 1.exe.config
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\bin\Debug\Практика 1.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\bin\Debug\Практика 1.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.csprojAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика_1.Form1.resources
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика_1.Properties.Resources.resources
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.csproj.GenerateResource.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.exe
+C:\Users\Павел\Documents\GitHub\ne_spisivay\10 класс\Практика 1\Практика 1\obj\Debug\Практика 1.pdb

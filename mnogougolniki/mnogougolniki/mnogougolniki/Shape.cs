@@ -5,27 +5,56 @@ namespace mnogougolniki
 {
     abstract class Shape
     {
-        static int R;
+        static int r;
         static Color lineColor;
         static Color fillColor;
         int x;
         int y;
+        public int X 
+        {
+            get 
+            {
+                return x;
+            }
+        }
+        public int Y 
+        {
+            get 
+            {
+                return y;
+            }
+        }
+        public int R 
+        {
+            get 
+            {
+                return r;
+            }
+        }
+        public Color LineColor
+        {
+            get 
+            {
+                return lineColor;
+            }
+        }
+        public Color FillColor
+        {
+            get 
+            {
+                return fillColor;
+            }
+        }
         static Shape()
         {
-            R = 1;
+            r = 1;
         }
         public Shape(int x, int y)
         {
             this.x = x;
             this.y = y;
         }
-        public virtual void Draw(Graphics g)
-        {
-            g.Dispose();
-        }
-        public virtual bool IsInside(Point mousePosition)
-        {
-            return true;
-        }
+        public abstract void Draw(Graphics g);
+        public abstract bool IsInside(Point mousePosition);
     }
 }
