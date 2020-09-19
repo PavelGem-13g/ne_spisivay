@@ -24,7 +24,7 @@ namespace mnogougolniki
             Point C = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2));
             Point D = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2));
 
-            return (A.X >= mousePosition.X) && (C.X <= mousePosition.X) && (B.Y <= mousePosition.Y) && (D.Y >= mousePosition.Y);
+            return (A.X <= mousePosition.X) && (mousePosition.X <= C.X ) && (B.Y <= mousePosition.Y) && (mousePosition.Y <= D.Y );
         }
     }
 }
