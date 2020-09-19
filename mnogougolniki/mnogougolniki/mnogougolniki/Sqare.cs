@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mnogougolniki
 {
@@ -15,7 +11,20 @@ namespace mnogougolniki
         }
         public override void Draw(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(Color.Blue), X - R, Y - R, (int)(R * Math.Sqrt(2)), (int)(R * Math.Sqrt(2)));
+/*            Point A =
+            Point B = new Point(X - (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2));
+            Point C = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2));
+            Point D = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2));*/
+
+            Point[] points = new Point[]
+            {
+            new Point(X - (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2)),
+            new Point(X - (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
+            new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
+            new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2))
+        };
+
+            g.FillPolygon(new SolidBrush(FillColor), points);
         }
         public override bool IsInside(Point mousePosition)
         {
@@ -24,7 +33,7 @@ namespace mnogougolniki
             Point C = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2));
             Point D = new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2));
 
-            return (A.X <= mousePosition.X) && (mousePosition.X <= C.X ) && (B.Y <= mousePosition.Y) && (mousePosition.Y <= D.Y );
+            return (A.X <= mousePosition.X) && (mousePosition.X <= C.X) && (B.Y <= mousePosition.Y) && (mousePosition.Y <= D.Y);
         }
     }
 }
