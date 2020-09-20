@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace mnogougolniki
 {
@@ -21,14 +17,14 @@ namespace mnogougolniki
             new Point(X,Y-R),
             new Point(X+R*(int)Math.Sqrt(3)/2,Y+R/2)};
 
-            g.FillPolygon(new SolidBrush(FillColor),points);
+            g.FillPolygon(new SolidBrush(FillColor), points);
         }
 
         public override bool IsInside(Point mousePosition)
         {
-            Point A = new Point(X-R*(int)Math.Sqrt(3)/2,Y+R/2);
-            Point B = new Point(X,Y-R);
-            Point C = new Point(X+R*(int)Math.Sqrt(3)/2,Y+R/2);
+            Point A = new Point(X - R * (int)Math.Sqrt(3) / 2, Y + R / 2);
+            Point B = new Point(X, Y - R);
+            Point C = new Point(X + R * (int)Math.Sqrt(3) / 2, Y + R / 2);
 
             int a = (A.X - mousePosition.X) * (B.Y - A.Y) - (B.X - A.X) * (A.Y - mousePosition.Y);
             int b = (B.X - mousePosition.X) * (C.Y - B.Y) - (C.X - B.X) * (B.Y - mousePosition.Y);

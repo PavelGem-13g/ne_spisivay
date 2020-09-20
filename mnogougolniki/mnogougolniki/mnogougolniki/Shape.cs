@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace mnogougolniki
 {
@@ -11,45 +10,45 @@ namespace mnogougolniki
         bool isMovable;
         int x;
         int y;
-        public int X 
+        public int X
         {
-            get 
+            get
             {
                 return x;
             }
         }
-        public int Y 
+        public int Y
         {
-            get 
+            get
             {
                 return y;
             }
         }
-        public int R 
+        public int R
         {
-            get 
+            get
             {
                 return r;
             }
         }
         public bool IsMovable
         {
-            get 
+            get
             {
                 return isMovable;
             }
-            set 
+            set
             {
                 isMovable = value;
             }
         }
-        public Point Location 
+        public Point Location
         {
-            get 
+            get
             {
                 return new Point(x, y);
             }
-            set 
+            set
             {
                 x = value.X;
                 y = value.Y;
@@ -57,14 +56,14 @@ namespace mnogougolniki
         }
         public Color LineColor
         {
-            get 
+            get
             {
                 return lineColor;
             }
         }
         public Color FillColor
         {
-            get 
+            get
             {
                 return fillColor;
             }

@@ -22,6 +22,7 @@ namespace mnogougolniki
                     Refresh();
                 }
             }
+
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
