@@ -38,6 +38,21 @@ namespace mnogougolniki
                         k++;
                     }
                 }
+/*              Наработка для обработки 2-ух и более точек за 1 drag&drop 1 точки
+                bool end = false;
+                foreach (var item in shapes)
+                {
+                    foreach (var item2 in shapes)
+                    {
+                        if (item.IsMovable && item2.IsMovable && item.Location==item2.Location)
+                        {
+                            end = true;
+                            shapes.Remove(item2);
+                        }
+                        if (end) break;
+                    }
+                    if (end) break;
+                }*/
                 if (shapes.Count == 0 || k == 0)
                 {
                     shapes.Add(new Circle(e.Location.X, e.Location.Y));
