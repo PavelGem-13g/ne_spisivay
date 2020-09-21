@@ -36,6 +36,8 @@ namespace mnogougolniki
                     {
                         item.IsMovable = true;
                         k++;
+                        //чтоб захватывалась только одна вершина
+                        break;
                     }
                 }
 /*              Наработка для обработки 2-ух и более точек за 1 drag&drop 1 точки
