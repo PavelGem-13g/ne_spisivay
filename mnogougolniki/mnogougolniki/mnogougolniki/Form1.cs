@@ -29,7 +29,7 @@ namespace mnogougolniki
         {
             if (MouseButtons.Left == e.Button)
             {
-                int k = 0;
+                ushort k = 0;
                 foreach (var item in shapes)
                 {
                     if (item.IsInside(e.Location))

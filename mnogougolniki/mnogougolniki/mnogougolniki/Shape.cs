@@ -70,7 +70,7 @@ namespace mnogougolniki
         }
         static Shape()
         {
-            r = 10;
+            r = 20;
             lineColor = Color.Black;
             fillColor = Color.Black;
         }
