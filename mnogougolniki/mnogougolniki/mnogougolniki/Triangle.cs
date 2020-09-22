@@ -9,6 +9,10 @@ namespace mnogougolniki
         {
 
         }
+        public Triangle(Point position) : base(position)
+        {
+
+        }
 
         public override void Draw(Graphics g)
         {

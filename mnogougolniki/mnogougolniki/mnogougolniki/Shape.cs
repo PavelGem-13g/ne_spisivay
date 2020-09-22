@@ -10,6 +10,8 @@ namespace mnogougolniki
         bool isMovable;
         int x;
         int y;
+        int xShift;
+        int yShift;
         public int X
         {
             get
@@ -22,6 +24,32 @@ namespace mnogougolniki
             get
             {
                 return y;
+            }
+        }
+        public int YShift
+        {
+            get
+            {
+                return yShift;
+            }
+        }
+        public int XShift
+        {
+            get
+            {
+                return xShift;
+            }
+        }
+        public Point MoveShift 
+        {
+            get 
+            {
+                return new Point(XShift, YShift);
+            }
+            set 
+            {
+                xShift = value.X;
+                yShift = value.Y;
             }
         }
         public int R
@@ -70,7 +98,7 @@ namespace mnogougolniki
         }
         static Shape()
         {
-            r = 20;
+            r = 50;
             lineColor = Color.Black;
             fillColor = Color.Black;
         }
@@ -78,6 +106,11 @@ namespace mnogougolniki
         {
             this.x = x;
             this.y = y;
+        }
+        public Shape(Point position)
+        {
+            this.x = position.X;
+            this.y = position.Y;
         }
         public abstract void Draw(Graphics g);
         public abstract bool IsInside(Point mousePosition);

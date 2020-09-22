@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace mnogougolniki
@@ -10,6 +11,7 @@ namespace mnogougolniki
         {
             InitializeComponent();
             shapes = new Collection<Shape>();
+            DoubleBuffered = true;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -18,7 +20,7 @@ namespace mnogougolniki
             {
                 if (item.IsMovable)
                 {
-                    item.Location = e.Location;
+                    item.Location = new Point(e.Location.X+item.Location.X, e.Location.Y + item.Location.Y);
                     Refresh();
                 }
             }
@@ -35,29 +37,14 @@ namespace mnogougolniki
                     if (item.IsInside(e.Location))
                     {
                         item.IsMovable = true;
+                        item.MoveShift = new Point(e.X-item.X, e.Y-item.X);
+                        MessageBox.Show(item.MoveShift.X + " " + item.MoveShift.Y);
                         k++;
-                        //чтоб захватывалась только одна вершина
-                        break;
                     }
                 }
-/*              Наработка для обработки 2-ух и более точек за 1 drag&drop 1 точки
-                bool end = false;
-                foreach (var item in shapes)
-                {
-                    foreach (var item2 in shapes)
-                    {
-                        if (item.IsMovable && item2.IsMovable && item.Location==item2.Location)
-                        {
-                            end = true;
-                            shapes.Remove(item2);
-                        }
-                        if (end) break;
-                    }
-                    if (end) break;
-                }*/
                 if (shapes.Count == 0 || k == 0)
                 {
-                    shapes.Add(new Circle(e.Location.X, e.Location.Y));
+                    shapes.Add(new Sqare(e.Location));
                 }
             }
             if (MouseButtons.Right == e.Button)

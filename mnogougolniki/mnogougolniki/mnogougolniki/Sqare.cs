@@ -9,6 +9,10 @@ namespace mnogougolniki
         {
 
         }
+        public Sqare(Point position) : base (position)
+        {
+        
+        }
         public override void Draw(Graphics g)
         {
             Point[] points = new Point[]
@@ -17,7 +21,7 @@ namespace mnogougolniki
             new Point(X - (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
             new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
             new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2))
-        };
+            };
 
             g.FillPolygon(new SolidBrush(FillColor), points);
         }
