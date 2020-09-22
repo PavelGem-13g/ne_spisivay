@@ -38,7 +38,6 @@ namespace mnogougolniki
                     {
                         item.IsMovable = true;
                         item.MoveShift = new Point(e.X-item.X, e.Y-item.Y);
-                        //MessageBox.Show(item.MoveShift.X + " " + item.MoveShift.Y);
                         k++;
                     }
                 }
