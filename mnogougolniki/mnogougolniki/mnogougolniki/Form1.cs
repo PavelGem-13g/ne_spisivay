@@ -20,7 +20,7 @@ namespace mnogougolniki
             {
                 if (item.IsMovable)
                 {
-                    item.Location = new Point(e.Location.X+item.Location.X, e.Location.Y + item.Location.Y);
+                    item.Location = new Point(e.Location.X-item.MoveShift.X, e.Location.Y - item.MoveShift.Y);
                     Refresh();
                 }
             }
@@ -37,8 +37,8 @@ namespace mnogougolniki
                     if (item.IsInside(e.Location))
                     {
                         item.IsMovable = true;
-                        item.MoveShift = new Point(e.X-item.X, e.Y-item.X);
-                        MessageBox.Show(item.MoveShift.X + " " + item.MoveShift.Y);
+                        item.MoveShift = new Point(e.X-item.X, e.Y-item.Y);
+                        //MessageBox.Show(item.MoveShift.X + " " + item.MoveShift.Y);
                         k++;
                     }
                 }
