@@ -16,7 +16,7 @@ namespace mnogougolniki
 
         public override void Draw(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(FillColor), X - R, Y - R, R, R);
+            g.FillEllipse(new SolidBrush(FillColor), X -R/2, Y -R/2, R, R);
         }
 
         public override bool IsInside(Point mousePosition)

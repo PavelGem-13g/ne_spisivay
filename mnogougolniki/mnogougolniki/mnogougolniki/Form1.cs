@@ -7,11 +7,13 @@ namespace mnogougolniki
     public partial class Form1 : Form
     {
         Collection<Shape> shapes;
+        int shapeType;
         public Form1()
         {
             InitializeComponent();
             shapes = new Collection<Shape>();
             DoubleBuffered = true;
+            shapeType = 0;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -20,7 +22,7 @@ namespace mnogougolniki
             {
                 if (item.IsMovable)
                 {
-                    item.Location = new Point(e.Location.X-item.MoveShift.X, e.Location.Y - item.MoveShift.Y);
+                    item.Location = new Point(e.Location.X + item.MoveShift.X, e.Location.Y + item.MoveShift.Y);
                     Refresh();
                 }
             }
@@ -31,19 +33,30 @@ namespace mnogougolniki
         {
             if (MouseButtons.Left == e.Button)
             {
-                ushort k = 0;
+                bool flagAddShape = true;
                 foreach (var item in shapes)
                 {
                     if (item.IsInside(e.Location))
                     {
                         item.IsMovable = true;
-                        item.MoveShift = new Point(e.X-item.X, e.Y-item.Y);
-                        k++;
+                        item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
+                        flagAddShape = false;
                     }
                 }
-                if (shapes.Count == 0 || k == 0)
+                if (flagAddShape)
                 {
-                    shapes.Add(new Sqare(e.Location));
+                    if (shapeType==0)
+                    {
+                        shapes.Add(new Sqare(e.Location));
+                    }
+                    if (shapeType==1)
+                    {
+                        shapes.Add(new Circle(e.Location));
+                    }
+                    if (shapeType==2)
+                    {
+                        shapes.Add(new Triangle(e.Location));
+                    }
                 }
             }
             if (MouseButtons.Right == e.Button)
@@ -77,6 +90,21 @@ namespace mnogougolniki
             {
                 item.Draw(e.Graphics);
             }
+        }
+
+        private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            shapeType = 0;
+        }
+
+        private void circleToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            shapeType = 1;
+        }
+
+        private void triangleToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            shapeType = 2;
         }
     }
 }
