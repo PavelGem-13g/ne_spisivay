@@ -16,12 +16,12 @@ namespace mnogougolniki
 
         public override void Draw(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(FillColor), X -R/2, Y -R/2, R, R);
+            g.FillEllipse(new SolidBrush(FillColor), X-R, Y-R, R * 173 / 100, R * 173 / 100);
         }
 
         public override bool IsInside(Point mousePosition)
         {
-            return Math.Sqrt(Math.Pow(X - mousePosition.X, 2) + Math.Pow(Y - mousePosition.Y, 2)) <= R;
+            return Math.Pow(X - mousePosition.X, 2) + Math.Pow(Y - mousePosition.Y, 2) <= R * R;
         }
     }
 }
