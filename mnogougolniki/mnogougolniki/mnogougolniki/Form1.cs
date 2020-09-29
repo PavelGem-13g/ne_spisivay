@@ -61,11 +61,11 @@ namespace mnogougolniki
             }
             if (MouseButtons.Right == e.Button)
             {
-                foreach (var item in shapes)
+                for (int i = shapes.Count-1; 0 <= i; i--)
                 {
-                    if (item.IsInside(e.Location))
+                    if (shapes[i].IsInside(e.Location))
                     {
-                        shapes.Remove(item);
+                        shapes.Remove(shapes[i]);
                         break;
                     }
                 }
