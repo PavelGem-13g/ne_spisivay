@@ -94,13 +94,22 @@ namespace mnogougolniki
         }
         void definitionDrawning()
         {
+            //like k & b in graphs
+            double b;
+            double k;
             foreach (var first in shapes)
             {
                 foreach (var seond in shapes)
                 {
+                    if (first.Equals(seond)) 
+                    {
+                        k = (seond.Y * first.Y) / (seond.X * first.X);
+                        b = first.Y - k * first.X;
                     foreach (var third in shapes)
                     {
                         
+                    }
+                    
                     }
                 }
             }
@@ -109,16 +118,25 @@ namespace mnogougolniki
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             shapeType = 0;
+            sqareToolStripMenuItem.Checked = true;
+            circleToolStripMenuItem.Checked = false;
+            triangleToolStripMenuItem.Checked = false;
         }
 
         private void circleToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             shapeType = 1;
+            sqareToolStripMenuItem.Checked = false;
+            circleToolStripMenuItem.Checked = true;
+            triangleToolStripMenuItem.Checked = false;
         }
 
         private void triangleToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             shapeType = 2;
+            sqareToolStripMenuItem.Checked = false;
+            circleToolStripMenuItem.Checked = false;
+            triangleToolStripMenuItem.Checked = true;
         }
     }
 }

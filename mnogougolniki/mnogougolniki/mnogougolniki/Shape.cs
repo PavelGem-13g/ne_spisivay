@@ -8,6 +8,7 @@ namespace mnogougolniki
         static Color lineColor;
         static Color fillColor;
         bool isMovable;
+        bool isDrawable;
         int x;
         int y;
         int xShift;
@@ -18,7 +19,7 @@ namespace mnogougolniki
             {
                 return x;
             }
-            set 
+            set
             {
                 x = value;
             }
@@ -29,7 +30,7 @@ namespace mnogougolniki
             {
                 return y;
             }
-            set 
+            set
             {
                 Y = value;
             }
@@ -48,16 +49,27 @@ namespace mnogougolniki
                 return xShift;
             }
         }
-        public Point MoveShift 
+        public Point MoveShift
         {
-            get 
+            get
             {
                 return new Point(XShift, YShift);
             }
-            set 
+            set
             {
                 xShift = value.X;
                 yShift = value.Y;
+            }
+        }
+        public bool IsDrawable 
+        {
+            get 
+            {
+                return isDrawable;
+            }
+            set 
+            {
+                isDrawable = value;
             }
         }
         public int R

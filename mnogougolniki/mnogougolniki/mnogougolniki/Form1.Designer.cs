@@ -69,6 +69,8 @@
             // 
             // sqareToolStripMenuItem
             // 
+            this.sqareToolStripMenuItem.Checked = true;
+            this.sqareToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.sqareToolStripMenuItem.Name = "sqareToolStripMenuItem";
             this.sqareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sqareToolStripMenuItem.Text = "Sqare";
