@@ -18,7 +18,7 @@ namespace mnogougolniki
         {
             Point[] points = new Point[]{
             new Point(X-R*866/1000,Y+R/2),
-            new Point(X,Y-R/2),
+            new Point(X,Y-R),
             new Point(X+R*866/1000,Y+R/2)};
 
             g.FillPolygon(new SolidBrush(FillColor), points);

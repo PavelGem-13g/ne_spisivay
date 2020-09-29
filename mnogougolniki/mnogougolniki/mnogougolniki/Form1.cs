@@ -91,6 +91,19 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
+        /*void definitionDrawning() 
+        {
+            foreach (var item in shapes)
+            {
+                foreach (var item in shapes)
+                {
+                    foreach (var item in collection)
+                    {
+
+                    }
+                }
+            }
+        }*/
 
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {

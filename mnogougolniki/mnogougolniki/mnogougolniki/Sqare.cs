@@ -21,7 +21,7 @@ namespace mnogougolniki
             new Point(X - (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
             new Point(X + (int)(Math.Sqrt(2) * R / 2), Y - (int)(Math.Sqrt(2) * R / 2)),
             new Point(X + (int)(Math.Sqrt(2) * R / 2), Y + (int)(Math.Sqrt(2) * R / 2))
-            };
+        };
 
             g.FillPolygon(new SolidBrush(FillColor), points);
         }
