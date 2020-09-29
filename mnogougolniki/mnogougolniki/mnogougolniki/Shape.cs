@@ -18,12 +18,20 @@ namespace mnogougolniki
             {
                 return x;
             }
+            set 
+            {
+                x = value;
+            }
         }
         public int Y
         {
             get
             {
                 return y;
+            }
+            set 
+            {
+                Y = value;
             }
         }
         public int YShift

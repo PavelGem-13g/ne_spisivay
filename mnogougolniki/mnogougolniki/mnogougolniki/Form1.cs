@@ -22,7 +22,8 @@ namespace mnogougolniki
             {
                 if (item.IsMovable)
                 {
-                    item.Location = new Point(e.Location.X + item.MoveShift.X, e.Location.Y + item.MoveShift.Y);
+                    item.X = e.Location.X + item.MoveShift.X;
+                    item.Y = e.Location.Y + item.MoveShift.Y;                    
                     Refresh();
                 }
             }
@@ -91,19 +92,19 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
-        /*void definitionDrawning() 
+        void definitionDrawning()
         {
-            foreach (var item in shapes)
+            foreach (var first in shapes)
             {
-                foreach (var item in shapes)
+                foreach (var seond in shapes)
                 {
-                    foreach (var item in collection)
+                    foreach (var third in shapes)
                     {
-
+                        
                     }
                 }
             }
-        }*/
+        }
 
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
