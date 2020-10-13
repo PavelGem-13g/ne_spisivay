@@ -32,7 +32,7 @@ namespace mnogougolniki
             }
             set
             {
-                Y = value;
+                y = value;
             }
         }
         public int YShift
