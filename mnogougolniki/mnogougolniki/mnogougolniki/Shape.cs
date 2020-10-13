@@ -102,18 +102,26 @@ namespace mnogougolniki
                 y = value.Y;
             }
         }
-        public Color LineColor
+        public static Color LineColor
         {
             get
             {
                 return lineColor;
             }
+            set 
+            {
+                lineColor = value;
+            }
         }
-        public Color FillColor
+        public static Color FillColor
         {
             get
             {
                 return fillColor;
+            }
+            set 
+            {
+                fillColor = value;
             }
         }
         static Shape()

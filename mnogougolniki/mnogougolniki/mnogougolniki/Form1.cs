@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Windows.Forms;
+
 
 namespace mnogougolniki
 {
@@ -13,6 +15,7 @@ namespace mnogougolniki
             InitializeComponent();
             shapes = new Collection<Shape>();
             DoubleBuffered = true;
+
             shapeType = 0;
         }
 
@@ -23,7 +26,7 @@ namespace mnogougolniki
                 if (item.IsMovable)
                 {
                     item.X = e.Location.X + item.MoveShift.X;
-                    item.Y = e.Location.Y + item.MoveShift.Y;                    
+                    item.Y = e.Location.Y + item.MoveShift.Y;
                     Refresh();
                 }
             }
@@ -46,15 +49,15 @@ namespace mnogougolniki
                 }
                 if (flagAddShape)
                 {
-                    if (shapeType==0)
+                    if (shapeType == 0)
                     {
                         shapes.Add(new Sqare(e.Location));
                     }
-                    if (shapeType==1)
+                    if (shapeType == 1)
                     {
                         shapes.Add(new Circle(e.Location));
                     }
-                    if (shapeType==2)
+                    if (shapeType == 2)
                     {
                         shapes.Add(new Triangle(e.Location));
                     }
@@ -62,7 +65,7 @@ namespace mnogougolniki
             }
             if (MouseButtons.Right == e.Button)
             {
-                for (int i = shapes.Count-1; 0 <= i; i--)
+                for (int i = shapes.Count - 1; 0 <= i; i--)
                 {
                     if (shapes[i].IsInside(e.Location))
                     {
@@ -87,34 +90,102 @@ namespace mnogougolniki
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            if (shapes.Count > 2) definitionDrawning(e.Graphics);
             foreach (var item in shapes)
             {
                 item.Draw(e.Graphics);
             }
         }
-        void definitionDrawning()
+        bool polygonIsInside() 
         {
-            //like k & b in graphs
+            bool result = false;
+            return result;
+        }
+        void definitionDrawning(Graphics g)
+        {
             double b;
             double k;
+            bool right;
+            bool left;
+            bool up;
+            bool down;
+
+            foreach (var item in shapes)
+            {
+                item.IsDrawable = false;
+            }
+
             foreach (var first in shapes)
             {
-                foreach (var seond in shapes)
+                foreach (var second in shapes)
                 {
-                    if (first.Equals(seond)) 
+                    if (first != second)
                     {
-                        k = (seond.Y * first.Y) / (seond.X * first.X);
-                        b = first.Y - k * first.X;
-                    foreach (var third in shapes)
-                    {
-                        
-                    }
-                    
+                        if (first.X == second.X)
+                        {
+                            right = false;
+                            left = false;
+                            foreach (var third in shapes)
+                            {
+                                if (third != first && third != second)
+                                {
+                                    if (first.X >= third.X)
+                                    {
+                                        left = true;
+                                    }
+                                    else
+                                    {
+                                        right = true;
+                                    }
+                                }
+                            }
+                            if (right != left)
+                            {
+                                first.IsDrawable = true;
+                                second.IsDrawable = true;
+                                g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), new Point(first.X, first.Y), new Point(second.X, second.Y));
+                            }
+                        }
+                        else
+                        {
+                            k = (first.Y - second.Y +.0) / (first.X - second.X+ .0);
+                            b = first.Y - (k * first.X);
+                            up = false;
+                            down = false;
+                            foreach (var third in shapes)
+                            {
+                                if (third != first && third != second)
+                                {
+                                    if (third.Y >= (k * third.X + b))
+                                    {
+                                        down = true;
+                                    }
+                                    else
+                                    {
+                                        up = true;
+                                    }
+                                }
+                            }
+                            if (up != down)
+                            {
+                                first.IsDrawable = true;
+                                second.IsDrawable = true;
+                                g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), new Point(first.X, first.Y), new Point(second.X, second.Y));
+                            }
+                        }
                     }
                 }
             }
+            Collection<Shape> temp = new Collection<Shape>();
+            foreach (var item in shapes)
+            {
+                if (item.IsDrawable)
+                {
+                    temp.Add(item);
+                }
+            }
+            shapes = temp;
         }
-
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             shapeType = 0;
@@ -137,6 +208,22 @@ namespace mnogougolniki
             sqareToolStripMenuItem.Checked = false;
             circleToolStripMenuItem.Checked = false;
             triangleToolStripMenuItem.Checked = true;
+        }
+
+        private void lineColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            Shape.LineColor = colorDialog.Color;
+            Refresh();
+        }
+
+        private void fillColorToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            Shape.FillColor = colorDialog.Color;
+            Refresh();
         }
     }
 }
