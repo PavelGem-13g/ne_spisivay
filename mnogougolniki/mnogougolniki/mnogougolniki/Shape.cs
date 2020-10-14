@@ -8,7 +8,7 @@ namespace mnogougolniki
         static Color lineColor;
         static Color fillColor;
         bool isMovable;
-        bool isDrawable;
+        bool isShell;
         int x;
         int y;
         int xShift;
@@ -61,15 +61,15 @@ namespace mnogougolniki
                 yShift = value.Y;
             }
         }
-        public bool IsDrawable 
+        public bool IsShell 
         {
             get 
             {
-                return isDrawable;
+                return isShell;
             }
             set 
             {
-                isDrawable = value;
+                isShell = value;
             }
         }
         public int R

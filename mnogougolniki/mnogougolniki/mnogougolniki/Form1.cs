@@ -112,7 +112,7 @@ namespace mnogougolniki
 
             foreach (var item in shapes)
             {
-                item.IsDrawable = false;
+                item.IsShell = false;
             }
 
             foreach (var first in shapes)
@@ -141,8 +141,8 @@ namespace mnogougolniki
                             }
                             if (right != left)
                             {
-                                first.IsDrawable = true;
-                                second.IsDrawable = true;
+                                first.IsShell = true;
+                                second.IsShell = true;
                                 g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), new Point(first.X, first.Y), new Point(second.X, second.Y));
                             }
                         }
@@ -168,8 +168,8 @@ namespace mnogougolniki
                             }
                             if (up != down)
                             {
-                                first.IsDrawable = true;
-                                second.IsDrawable = true;
+                                first.IsShell = true;
+                                second.IsShell = true;
                                 g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), new Point(first.X, first.Y), new Point(second.X, second.Y));
                             }
                         }
@@ -179,7 +179,7 @@ namespace mnogougolniki
             Collection<Shape> temp = new Collection<Shape>();
             foreach (var item in shapes)
             {
-                if (item.IsDrawable)
+                if (item.IsShell)
                 {
                     temp.Add(item);
                 }
