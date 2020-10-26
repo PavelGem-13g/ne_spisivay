@@ -38,7 +38,10 @@
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fillColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtfenitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.jarvisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +60,8 @@
             // 
             this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.shapeToolStripMenuItem,
-            this.colorToolStripMenuItem});
+            this.colorToolStripMenuItem,
+            this.shellToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.toolToolStripMenuItem.Text = "Tool";
@@ -118,9 +122,34 @@
             this.fillColorToolStripMenuItem.Text = "Fill color";
             this.fillColorToolStripMenuItem.Click += new System.EventHandler(this.fillColorToolStripMenuItem_Click_1);
             // 
+            // shellToolStripMenuItem
+            // 
+            this.shellToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dtfenitionToolStripMenuItem,
+            this.jarvisToolStripMenuItem});
+            this.shellToolStripMenuItem.Name = "shellToolStripMenuItem";
+            this.shellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shellToolStripMenuItem.Text = "Shell";
+            // 
+            // dtfenitionToolStripMenuItem
+            // 
+            this.dtfenitionToolStripMenuItem.Checked = true;
+            this.dtfenitionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dtfenitionToolStripMenuItem.Name = "dtfenitionToolStripMenuItem";
+            this.dtfenitionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dtfenitionToolStripMenuItem.Text = "Defenition";
+            this.dtfenitionToolStripMenuItem.Click += new System.EventHandler(this.dtfenitionToolStripMenuItem_Click);
+            // 
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
+            // 
+            // jarvisToolStripMenuItem
+            // 
+            this.jarvisToolStripMenuItem.Name = "jarvisToolStripMenuItem";
+            this.jarvisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jarvisToolStripMenuItem.Text = "Jarvis";
+            this.jarvisToolStripMenuItem.Click += new System.EventHandler(this.jarvisToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -153,6 +182,9 @@
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lineColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fillColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shellToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dtfenitionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jarvisToolStripMenuItem;
     }
 }
 

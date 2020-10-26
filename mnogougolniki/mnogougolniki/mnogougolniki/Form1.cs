@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,25 +8,27 @@ namespace mnogougolniki
 {
     public partial class Form1 : Form
     {
-        Collection<Shape> shapes;
+        List<Shape> shapes;
         int shapeType;
+        int drawningType;
         public Form1()
         {
             InitializeComponent();
-            shapes = new Collection<Shape>();
+            shapes = new List<Shape>();
             DoubleBuffered = true;
 
             shapeType = 0;
+            drawningType = 0;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (var item in shapes)
+            for (int i = 0; i < shapes.Count; i++)
             {
-                if (item.IsMovable)
+                if (shapes[i].IsMovable)
                 {
-                    item.X = e.Location.X + item.MoveShift.X;
-                    item.Y = e.Location.Y + item.MoveShift.Y;
+                    shapes[i].X = e.Location.X + shapes[i].MoveShift.X;
+                    shapes[i].Y = e.Location.Y + shapes[i].MoveShift.Y;
                     Refresh();
                 }
             }
@@ -90,13 +92,36 @@ namespace mnogougolniki
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (shapes.Count > 2) definitionDrawning(e.Graphics);
+
+            if (shapes.Count > 2)
+            {
+                foreach (var item in shapes)
+                {
+                    item.IsShell = false;
+                }
+
+                if (drawningType==0) 
+                {
+                    definitionDrawning(e.Graphics);
+                }
+                if (drawningType==1)
+                {
+                    jarvisDrawning(e.Graphics);
+                }
+                for (int i = shapes.Count - 1; i > 0; i--)
+                {
+                    if (!shapes[i].IsShell)
+                    {
+                        shapes.Remove(shapes[i]);
+                    }
+                }
+            }            
             foreach (var item in shapes)
             {
                 item.Draw(e.Graphics);
             }
         }
-        bool polygonIsInside() 
+        bool polygonIsInside()
         {
             bool result = false;
             return result;
@@ -109,11 +134,6 @@ namespace mnogougolniki
             bool left;
             bool up;
             bool down;
-
-            foreach (var item in shapes)
-            {
-                item.IsShell = false;
-            }
 
             foreach (var first in shapes)
             {
@@ -148,7 +168,7 @@ namespace mnogougolniki
                         }
                         else
                         {
-                            k = (first.Y - second.Y +.0) / (first.X - second.X+ .0);
+                            k = (first.Y - second.Y + .0) / (first.X - second.X + .0);
                             b = first.Y - (k * first.X);
                             up = false;
                             down = false;
@@ -176,15 +196,25 @@ namespace mnogougolniki
                     }
                 }
             }
-            Collection<Shape> temp = new Collection<Shape>();
-            foreach (var item in shapes)
+
+        }
+        void jarvisDrawning(Graphics g) 
+        {
+            int minI = 0;
+            for (int i = 0; i < shapes.Count-1; i++)
             {
-                if (item.IsShell)
+                if (shapes[i].X < shapes[i+1].X && shapes[i].Y > shapes[i+1].Y) 
                 {
-                    temp.Add(item);
+                    minI = i;
                 }
             }
-            shapes = temp;
+            g.FillEllipse(new SolidBrush(Color.Red), shapes[minI].X, shapes[minI].Y, 50 * 173 / 100, 50 * 173 / 100);
+            MessageBox.Show(minI+" x="+shapes[minI].X+" y="+shapes[minI].Y);
+/*            int j = minI;
+            do 
+            {
+            
+            }while(minI)*/
         }
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
@@ -224,6 +254,20 @@ namespace mnogougolniki
                 return;
             Shape.FillColor = colorDialog.Color;
             Refresh();
+        }
+
+        private void dtfenitionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drawningType = 0;
+            dtfenitionToolStripMenuItem.Checked = true;
+            jarvisToolStripMenuItem.Checked = false;
+        }
+
+        private void jarvisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drawningType = 1;
+            dtfenitionToolStripMenuItem.Checked = false;
+            jarvisToolStripMenuItem.Checked = true;
         }
     }
 }
