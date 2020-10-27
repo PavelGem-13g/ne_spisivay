@@ -88,6 +88,18 @@ namespace mnogougolniki
                     item.IsMovable = false;
                 }
             }
+            if (shapes.Count > 2)
+            {
+                for (int i = shapes.Count - 1; i > 0; i--)
+                {
+                    if (!shapes[i].IsShell)
+                    {
+                        shapes.Remove(shapes[i]);
+                    }
+                }
+                Refresh();
+            }
+
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -100,22 +112,15 @@ namespace mnogougolniki
                     item.IsShell = false;
                 }
 
-                if (drawningType==0) 
+                if (drawningType == 0)
                 {
                     definitionDrawning(e.Graphics);
                 }
-                if (drawningType==1)
+                if (drawningType == 1)
                 {
                     jarvisDrawning(e.Graphics);
                 }
-                for (int i = shapes.Count - 1; i > 0; i--)
-                {
-                    if (!shapes[i].IsShell)
-                    {
-                        shapes.Remove(shapes[i]);
-                    }
-                }
-            }            
+            }
             foreach (var item in shapes)
             {
                 item.Draw(e.Graphics);
@@ -198,23 +203,41 @@ namespace mnogougolniki
             }
 
         }
-        void jarvisDrawning(Graphics g) 
+        void jarvisDrawning(Graphics g)
         {
-            int minI = 0;
-            for (int i = 0; i < shapes.Count-1; i++)
+            int p0 = 0;
+            for (int i = 0; i < shapes.Count - 1; i++)
             {
-                if (shapes[i].X < shapes[i+1].X && shapes[i].Y > shapes[i+1].Y) 
+                if (shapes[i].X < shapes[i + 1].X && shapes[i].Y > shapes[i + 1].Y)
                 {
-                    minI = i;
+                    p0 = i;
                 }
             }
-            g.FillEllipse(new SolidBrush(Color.Red), shapes[minI].X, shapes[minI].Y, 50 * 173 / 100, 50 * 173 / 100);
-            MessageBox.Show(minI+" x="+shapes[minI].X+" y="+shapes[minI].Y);
-/*            int j = minI;
-            do 
+            int pi = 0;
+            pi = p0;
+            int k = 0;
+            do
             {
-            
-            }while(minI)*/
+                k++;
+                if (k == 1)
+                {
+                    pi = 
+                }
+                else
+                {
+                    for (int i = 0; i < shapes.Count - 1; i++)
+                    {
+                        if (i != k)
+                        {
+
+                        }
+                    }
+                }
+                pi = k;
+
+
+            } while (pi != p0);
+
         }
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
