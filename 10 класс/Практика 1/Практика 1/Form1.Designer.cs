@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.containers = new System.Windows.Forms.SplitContainer();
             this.button = new System.Windows.Forms.Button();
-            this.lable_A = new System.Windows.Forms.Label();
-            this.label_B = new System.Windows.Forms.Label();
             this.label_C = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.containers)).BeginInit();
+            this.label_B = new System.Windows.Forms.Label();
+            this.lable_A = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize) (this.containers)).BeginInit();
             this.containers.Panel1.SuspendLayout();
             this.containers.Panel2.SuspendLayout();
             this.containers.SuspendLayout();
@@ -64,12 +64,11 @@
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button_Click);
             // 
-            // lable_A
+            // label_C
             // 
-            resources.ApplyResources(this.lable_A, "lable_A");
-            this.lable_A.BackColor = System.Drawing.Color.Transparent;
-            this.lable_A.ForeColor = System.Drawing.Color.Black;
-            this.lable_A.Name = "lable_A";
+            resources.ApplyResources(this.label_C, "label_C");
+            this.label_C.BackColor = System.Drawing.Color.Transparent;
+            this.label_C.Name = "label_C";
             // 
             // label_B
             // 
@@ -77,11 +76,12 @@
             this.label_B.BackColor = System.Drawing.Color.Transparent;
             this.label_B.Name = "label_B";
             // 
-            // label_C
+            // lable_A
             // 
-            resources.ApplyResources(this.label_C, "label_C");
-            this.label_C.BackColor = System.Drawing.Color.Transparent;
-            this.label_C.Name = "label_C";
+            resources.ApplyResources(this.lable_A, "lable_A");
+            this.lable_A.BackColor = System.Drawing.Color.Transparent;
+            this.lable_A.ForeColor = System.Drawing.Color.Black;
+            this.lable_A.Name = "lable_A";
             // 
             // Form1
             // 
@@ -93,10 +93,9 @@
             this.containers.Panel1.ResumeLayout(false);
             this.containers.Panel2.ResumeLayout(false);
             this.containers.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.containers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.containers)).EndInit();
             this.containers.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

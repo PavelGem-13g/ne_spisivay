@@ -90,7 +90,7 @@ namespace mnogougolniki
             }
             if (shapes.Count > 2)
             {
-                for (int i = shapes.Count - 1; i > 0; i--)
+                for (int i = shapes.Count - 1; i >= 0; i--)
                 {
                     if (!shapes[i].IsShell)
                     {
@@ -205,23 +205,43 @@ namespace mnogougolniki
         }
         void jarvisDrawning(Graphics g)
         {
-            int p0 = 0;
-            for (int i = 0; i < shapes.Count - 1; i++)
-            {
-                if (shapes[i].X < shapes[i + 1].X && shapes[i].Y > shapes[i + 1].Y)
-                {
-                    p0 = i;
-                }
-            }
-            int pi = 0;
-            pi = p0;
-            int k = 0;
+            int iA, iP, k = 0;
             do
             {
-                k++;
-                if (k == 1)
+                if (k == 0)
                 {
-                    pi = 
+
+                    //finding first point (A) 
+                    int maxY_and_minX = 0;
+                    for (int i = 0; i < shapes.Count - 1; i++)
+                    {
+                        if (shapes[maxY_and_minX].X > shapes[i].X && shapes[maxY_and_minX].Y < shapes[i].Y)
+                        {
+                            maxY_and_minX = i;
+                        }
+                    }
+                    iA = maxY_and_minX;
+                    //end finding
+
+                    // create M, that to the left of A
+                    Point M = shapes[iA].Location;
+                    M.X -= 10;
+                    //end creating
+
+                    //finding max angle
+                    double minCos = 2f;
+                    for (int i = 0; i < shapes.Count-1; i++)
+                    {
+                        if (i!=iA) 
+                        {
+                            if (/* расчет косинуса*/shapes[]<minCos ) 
+                            {
+                                iP = i;
+                            }
+                        }
+                    }
+
+
                 }
                 else
                 {
@@ -233,10 +253,10 @@ namespace mnogougolniki
                         }
                     }
                 }
-                pi = k;
 
 
-            } while (pi != p0);
+                k++;
+            } while ();
 
         }
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
