@@ -90,13 +90,13 @@ namespace mnogougolniki
             }
             if (shapes.Count > 2)
             {
-                for (int i = shapes.Count - 1; i >= 0; i--)
+/*                for (int i = shapes.Count - 1; i >= 0; i--)
                 {
                     if (!shapes[i].IsShell)
                     {
                         shapes.Remove(shapes[i]);
                     }
-                }
+                }*/
                 Refresh();
             }
 
@@ -203,61 +203,76 @@ namespace mnogougolniki
             }
 
         }
+
         void jarvisDrawning(Graphics g)
         {
-            int iA, iP, k = 0;
+            int iA = 0, iP = 0, k = 0;
+            
+            //finding first point (A) 
+
+            for (int i = 0; i < shapes.Count - 1; i++)
+            {
+                if (/*shapes[iA].X > shapes[i].X && */shapes[iA].Y < shapes[i].Y)
+                {
+                    iA = i;
+                }
+            }
+            //end finding
+
+            // create M, that to the left of A
+            Point M = shapes[iA].Location;
+            M.X -= 1;
+            //end creating
+
+            //finding max angle
+            double minCos = 100000f;
+            for (int i = 0; i < shapes.Count - 1; i++)
+            {
+                if (i != iA)
+                {
+                    if (/* расчет косинуса*/CosCounting(shapes[i].Location, M) < minCos)
+                    {
+                        iP = i;
+                        minCos = CosCounting(shapes[i].Location, M);
+                    }
+                    
+                }
+            }
+            //drawinig and switch to isShell
+            g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)),shapes[iA].Location, shapes[iP].Location);
+            shapes[iA].IsShell = true;
+            shapes[iP].IsShell = true;
+            //end drawning and switcing
+
+            int iA_copy = iA;
+            //cycled finding
+            int iM = 0;
             do
             {
-                if (k == 0)
+
+                for (int i = 0; i < shapes.Count - 1; i++)
                 {
-
-                    //finding first point (A) 
-                    int maxY_and_minX = 0;
-                    for (int i = 0; i < shapes.Count - 1; i++)
+                    if (i != iA)
                     {
-                        if (shapes[maxY_and_minX].X > shapes[i].X && shapes[maxY_and_minX].Y < shapes[i].Y)
+                        if (/*расчет косинуса*/CosCounting(shapes[iA].Location, shapes[i].Location) < minCos)
                         {
-                            maxY_and_minX = i;
-                        }
-                    }
-                    iA = maxY_and_minX;
-                    //end finding
-
-                    // create M, that to the left of A
-                    Point M = shapes[iA].Location;
-                    M.X -= 10;
-                    //end creating
-
-                    //finding max angle
-                    double minCos = 2f;
-                    for (int i = 0; i < shapes.Count-1; i++)
-                    {
-                        if (i!=iA) 
-                        {
-                            if (/* расчет косинуса*/shapes[]<minCos ) 
-                            {
-                                iP = i;
-                            }
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    for (int i = 0; i < shapes.Count - 1; i++)
-                    {
-                        if (i != k)
-                        {
-
+                            iM = i;
+                            minCos = CosCounting(shapes[i].Location, shapes[i].Location);
                         }
                     }
                 }
+                g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), shapes[iM].Location, shapes[iP].Location);
+                shapes[iM].IsShell = true;
 
 
-                k++;
-            } while ();
-
+                iA = iP;
+                iP = iM;
+            } while (iP != iA_copy);
+            //end
+        }
+        double CosCounting(Point a, Point b)
+        {
+            return ((a.X * b.X) + (a.Y * b.Y)) / (Math.Sqrt(a.X * a.X + a.Y * a.Y) * Math.Sqrt(b.X * b.X + b.Y * b.Y));
         }
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
