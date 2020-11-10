@@ -207,48 +207,37 @@ namespace mnogougolniki
         void jarvisDrawning(Graphics g)
         {
             int iA = 0, iP = 0, k = 0;
-            
-            //finding first point (A) 
-
             for (int i = 0; i < shapes.Count; i++)
             {
-                //TODO: сравнение X
-                if (/*shapes[iA].X > shapes[i].X && */shapes[iA].Y < shapes[i].Y)
+                if (shapes[iA].Y < shapes[i].Y)
                 {
                     iA = i;
                 }
             }
-            //end finding
-
-            // create M, that to the left of A
+            /// create M, that to the left of A
             Point M = shapes[iA].Location;
             M.X -= 1000;
-            //end creating
-
-            //finding max angle
+            ///finding max angle
             double minCos = 100000d;
             for (int i = 0; i < shapes.Count; i++)
             {
                 if (i != iA)
                 {
-                    if (/* расчет косинуса*/CosCounting(shapes[i].Location, shapes[iA].Location, M) < minCos)
+                    //расчет косинуса
+                    if (CosCounting(shapes[i].Location, shapes[iA].Location, M) < minCos)
                     {
                         minCos = CosCounting(shapes[i].Location, shapes[iA].Location, M);
                         iP = i;
                     }
-                    
+
                 }
             }
-            //drawinig and switch to isShell
-            g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)),shapes[iA].Location, shapes[iP].Location);
-            //g.FillEllipse(new SolidBrush(Color.Red), shapes[iA].X, shapes[iA].Y, 50, 50);
+            ///drawinig and switch to isShell
+            g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), shapes[iA].Location, shapes[iP].Location);
             shapes[iA].IsShell = true;
-            //g.FillEllipse(new SolidBrush(Color.Blue), shapes[iP].X, shapes[iP].Y, 50, 50);
             shapes[iP].IsShell = true;
-            //end drawning and switcing
-
-            int iA_copy = iA;
             //cycled finding
+            int iA_copy = iA;
             int iM = 0;
             do
             {
@@ -265,19 +254,15 @@ namespace mnogougolniki
                         }
                     }
                 }
-                //g.FillEllipse(new SolidBrush(Color.Brown), shapes[iM].X, shapes[iM].Y, 50, 50);
                 g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), shapes[iP].Location, shapes[iM].Location);
                 shapes[iM].IsShell = true;
-
-
                 iA = iP;
                 iP = iM;
             } while (iP != iA_copy);
-            //end
         }
         double CosCounting(Point a, Point b, Point c)
         {
-            Point VectorA = new Point(b.X-a.X,b.Y-a.Y);
+            Point VectorA = new Point(b.X - a.X, b.Y - a.Y);
             Point VectorB = new Point(b.X - c.X, b.Y - c.Y);
             return ((VectorA.X * VectorB.X) + (VectorA.Y * VectorB.Y)) / (Math.Sqrt(VectorA.X * VectorA.X + VectorA.Y * VectorA.Y) * Math.Sqrt(VectorB.X * VectorB.X + VectorB.Y * VectorB.Y));
         }
