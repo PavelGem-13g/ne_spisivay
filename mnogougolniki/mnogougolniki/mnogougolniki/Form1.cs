@@ -18,7 +18,7 @@ namespace mnogougolniki
             DoubleBuffered = true;
 
             shapeType = 0;
-            drawningType = 0;
+            drawningType = 1;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -90,13 +90,13 @@ namespace mnogougolniki
             }
             if (shapes.Count > 2)
             {
-/*                for (int i = shapes.Count - 1; i >= 0; i--)
+                for (int i = shapes.Count - 1; i >= 0; i--)
                 {
                     if (!shapes[i].IsShell)
                     {
                         shapes.Remove(shapes[i]);
                     }
-                }*/
+                }
                 Refresh();
             }
 
@@ -210,8 +210,9 @@ namespace mnogougolniki
             
             //finding first point (A) 
 
-            for (int i = 0; i < shapes.Count - 1; i++)
+            for (int i = 0; i < shapes.Count; i++)
             {
+                //TODO: сравнение X
                 if (/*shapes[iA].X > shapes[i].X && */shapes[iA].Y < shapes[i].Y)
                 {
                     iA = i;
@@ -221,26 +222,28 @@ namespace mnogougolniki
 
             // create M, that to the left of A
             Point M = shapes[iA].Location;
-            M.X -= 1;
+            M.X -= 1000;
             //end creating
 
             //finding max angle
-            double minCos = 100000f;
-            for (int i = 0; i < shapes.Count - 1; i++)
+            double minCos = 100000d;
+            for (int i = 0; i < shapes.Count; i++)
             {
                 if (i != iA)
                 {
-                    if (/* расчет косинуса*/CosCounting(shapes[i].Location, M) < minCos)
+                    if (/* расчет косинуса*/CosCounting(shapes[i].Location, shapes[iA].Location, M) < minCos)
                     {
+                        minCos = CosCounting(shapes[i].Location, shapes[iA].Location, M);
                         iP = i;
-                        minCos = CosCounting(shapes[i].Location, M);
                     }
                     
                 }
             }
             //drawinig and switch to isShell
             g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)),shapes[iA].Location, shapes[iP].Location);
+            //g.FillEllipse(new SolidBrush(Color.Red), shapes[iA].X, shapes[iA].Y, 50, 50);
             shapes[iA].IsShell = true;
+            //g.FillEllipse(new SolidBrush(Color.Blue), shapes[iP].X, shapes[iP].Y, 50, 50);
             shapes[iP].IsShell = true;
             //end drawning and switcing
 
@@ -249,19 +252,21 @@ namespace mnogougolniki
             int iM = 0;
             do
             {
-
-                for (int i = 0; i < shapes.Count - 1; i++)
+                minCos = 100000d;
+                for (int i = 0; i < shapes.Count; i++)
                 {
                     if (i != iA)
                     {
-                        if (/*расчет косинуса*/CosCounting(shapes[iA].Location, shapes[i].Location) < minCos)
+                        //расчет косинуса
+                        if (CosCounting(shapes[iA].Location, shapes[iP].Location, shapes[i].Location) < minCos)
                         {
+                            minCos = CosCounting(shapes[iA].Location, shapes[iP].Location, shapes[i].Location);
                             iM = i;
-                            minCos = CosCounting(shapes[i].Location, shapes[i].Location);
                         }
                     }
                 }
-                g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), shapes[iM].Location, shapes[iP].Location);
+                //g.FillEllipse(new SolidBrush(Color.Brown), shapes[iM].X, shapes[iM].Y, 50, 50);
+                g.DrawLine(new Pen(new SolidBrush(Shape.LineColor)), shapes[iP].Location, shapes[iM].Location);
                 shapes[iM].IsShell = true;
 
 
@@ -270,9 +275,11 @@ namespace mnogougolniki
             } while (iP != iA_copy);
             //end
         }
-        double CosCounting(Point a, Point b)
+        double CosCounting(Point a, Point b, Point c)
         {
-            return ((a.X * b.X) + (a.Y * b.Y)) / (Math.Sqrt(a.X * a.X + a.Y * a.Y) * Math.Sqrt(b.X * b.X + b.Y * b.Y));
+            Point VectorA = new Point(b.X-a.X,b.Y-a.Y);
+            Point VectorB = new Point(b.X - c.X, b.Y - c.Y);
+            return ((VectorA.X * VectorB.X) + (VectorA.Y * VectorB.Y)) / (Math.Sqrt(VectorA.X * VectorA.X + VectorA.Y * VectorA.Y) * Math.Sqrt(VectorB.X * VectorB.X + VectorB.Y * VectorB.Y));
         }
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
