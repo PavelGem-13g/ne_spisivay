@@ -18,7 +18,7 @@ namespace mnogougolniki
             DoubleBuffered = true;
 
             shapeType = 0;
-            drawningType = 1;
+            drawningType = 0;
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -206,7 +206,7 @@ namespace mnogougolniki
 
         void jarvisDrawning(Graphics g)
         {
-            int iA = 0, iP = 0, k = 0;
+            int iA = 0, iP = 0;
             for (int i = 0; i < shapes.Count; i++)
             {
                 if (shapes[iA].Y < shapes[i].Y)
@@ -241,7 +241,7 @@ namespace mnogougolniki
             int iM = 0;
             do
             {
-                minCos = 100000d;
+                minCos = double.MaxValue;
                 for (int i = 0; i < shapes.Count; i++)
                 {
                     if (i != iA)
