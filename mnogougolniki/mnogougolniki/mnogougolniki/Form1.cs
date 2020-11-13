@@ -40,30 +40,44 @@ namespace mnogougolniki
             if (MouseButtons.Left == e.Button)
             {
                 bool flagAddShape = true;
-                foreach (var item in shapes)
+                if (PolygonIsInside(e.Location))
                 {
-                    if (item.IsInside(e.Location))
+                    foreach (var item in shapes)
                     {
                         item.IsMovable = true;
                         item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
                         flagAddShape = false;
                     }
                 }
-                if (flagAddShape)
+                else
                 {
-                    if (shapeType == 0)
+                    foreach (var item in shapes)
                     {
-                        shapes.Add(new Sqare(e.Location));
+                        if (item.IsInside(e.Location))
+                        {
+                            item.IsMovable = true;
+                            item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
+                            flagAddShape = false;
+                        }
                     }
-                    if (shapeType == 1)
+                    if (flagAddShape)
                     {
-                        shapes.Add(new Circle(e.Location));
-                    }
-                    if (shapeType == 2)
-                    {
-                        shapes.Add(new Triangle(e.Location));
+                        if (shapeType == 0)
+                        {
+                            shapes.Add(new Sqare(e.Location));
+                        }
+                        if (shapeType == 1)
+                        {
+                            shapes.Add(new Circle(e.Location));
+                        }
+                        if (shapeType == 2)
+                        {
+                            shapes.Add(new Triangle(e.Location));
+                        }
                     }
                 }
+
+
             }
             if (MouseButtons.Right == e.Button)
             {
@@ -126,9 +140,17 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
-        bool polygonIsInside()
+        bool PolygonIsInside(Point point)
         {
             bool result = false;
+            int j = shapes.Count - 1;
+            for (int i = 0; i < shapes.Count; i++)
+            {
+                if (((shapes[i].Y < point.Y && shapes[j].Y >= point.Y) || (shapes[j].Y < point.Y && shapes[i].Y >= point.Y)) &&
+                     (shapes[i].X + (point.Y - shapes[i].Y) / (shapes[j].Y - shapes[i].Y) * (shapes[j].X - shapes[i].X) < point.X))
+                    result = !result;
+                j = i;
+            }
             return result;
         }
         void definitionDrawning(Graphics g)
