@@ -40,7 +40,7 @@ namespace mnogougolniki
             if (MouseButtons.Left == e.Button)
             {
                 bool flagAddShape = true;
-                if (PolygonIsInside(e.Location))
+                if (shapes.Count>2 && PolygonIsInside(e.Location))
                 {
                     foreach (var item in shapes)
                     {
@@ -118,9 +118,9 @@ namespace mnogougolniki
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-
             if (shapes.Count > 2)
             {
+                //DrawPolygon(e.Graphics);
                 foreach (var item in shapes)
                 {
                     item.IsShell = false;
@@ -140,18 +140,81 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
+        void DrawPolygon(Graphics g) 
+        {
+            Point[] pointMass = new Point[shapes.Count];
+            for (int i = 0; i < shapes.Count; i++)
+            {
+                pointMass[i] = shapes[i].Location;
+            }
+            g.FillPolygon(new SolidBrush(Shape.LineColor), pointMass);
+        }
         bool PolygonIsInside(Point point)
         {
             bool result = false;
-            int j = shapes.Count - 1;
+            int iA = 0, iP = 0;
+            List<Point> points = new List<Point>();
             for (int i = 0; i < shapes.Count; i++)
             {
-                if (((shapes[i].Y < point.Y && shapes[j].Y >= point.Y) || (shapes[j].Y < point.Y && shapes[i].Y >= point.Y)) &&
-                     (shapes[i].X + (point.Y - shapes[i].Y) / (shapes[j].Y - shapes[i].Y) * (shapes[j].X - shapes[i].X) < point.X))
-                    result = !result;
-                j = i;
+                points.Add(shapes[i].Location);
             }
-            return result;
+            points.Add(point);
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (points[iA].Y < points[i].Y)
+                {
+                    iA = i;
+                }
+            }
+            /// create M, that to the left of A
+            Point M = points[iA];
+            M.X -= 1000;
+            ///finding max angle
+            double minCos = 100000d;
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (i != iA)
+                {
+                    //расчет косинуса
+                    if (CosCounting(points[i], points[iA], M) < minCos)
+                    {
+                        minCos = CosCounting(points[i], points[iA], M);
+                        iP = i;
+                        if (points.Count - 1 == iP) 
+                        {
+                            result = true;
+                        }
+                    }
+
+                }
+            }
+            ///drawinig and switch to isShell
+            //cycled finding
+            int iA_copy = iA;
+            int iM = 0;
+            do
+            {
+                minCos = double.MaxValue;
+                for (int i = 0; i < points.Count; i++)
+                {
+                    if (i != iA)
+                    {
+                        //расчет косинуса
+                        if (CosCounting(points[iA], points[iP], points[i]) < minCos)
+                        {
+                            minCos = CosCounting(points[iA], points[iP], points[i]);
+                            iM = i;
+                            if (points.Count - 1 == iM)
+                            {
+                                result = true;
+                            }
+                        }
+                    }
+                }
+                iA = iP;
+                iP = iM;
+            } while (iP != iA_copy);
+            return !result;
         }
         void definitionDrawning(Graphics g)
         {
@@ -340,6 +403,12 @@ namespace mnogougolniki
             drawningType = 1;
             dtfenitionToolStripMenuItem.Checked = false;
             jarvisToolStripMenuItem.Checked = true;
+        }
+
+        private void radiusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Radius form = new Radius();
+            form.Show();
         }
     }
 }

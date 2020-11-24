@@ -20,6 +20,7 @@ namespace Практика_6_3
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int N = int.Parse(Console.ReadLine());
             int sum = soversh(N);
             if (N == sum) Console.WriteLine($"{N} совершенное число");

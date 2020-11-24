@@ -5,3 +5,7 @@ C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Фоновая 4.2
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.csproj.CoreCompileInputs.cache
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.exe
 C:\Users\pashe\OneDrive\Документы\GitHub\ne_spisivay\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.csprojAssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Фоновая 4.2 вар3\Фоновая 4.2 вар3\obj\Debug\Фоновая 4.2 вар3.pdb

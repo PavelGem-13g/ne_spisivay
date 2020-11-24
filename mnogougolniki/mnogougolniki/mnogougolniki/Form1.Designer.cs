@@ -40,8 +40,9 @@
             this.fillColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtfenitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.jarvisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.radiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,8 @@
             this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.shapeToolStripMenuItem,
             this.colorToolStripMenuItem,
-            this.shellToolStripMenuItem});
+            this.shellToolStripMenuItem,
+            this.radiusToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
             this.toolToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.toolToolStripMenuItem.Text = "Tool";
@@ -81,21 +83,21 @@
             this.sqareToolStripMenuItem.Checked = true;
             this.sqareToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.sqareToolStripMenuItem.Name = "sqareToolStripMenuItem";
-            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.sqareToolStripMenuItem.Text = "Sqare";
             this.sqareToolStripMenuItem.Click += new System.EventHandler(this.sqareToolStripMenuItem_Click);
             // 
             // circleToolStripMenuItem
             // 
             this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
-            this.circleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.circleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.circleToolStripMenuItem.Text = "Circle";
             this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
             // 
             // triangleToolStripMenuItem
             // 
             this.triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
-            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.triangleToolStripMenuItem.Text = "Triangle";
             this.triangleToolStripMenuItem.Click += new System.EventHandler(this.triangleToolStripMenuItem_Click);
             // 
@@ -111,14 +113,14 @@
             // lineColorToolStripMenuItem
             // 
             this.lineColorToolStripMenuItem.Name = "lineColorToolStripMenuItem";
-            this.lineColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lineColorToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.lineColorToolStripMenuItem.Text = "Line color";
             this.lineColorToolStripMenuItem.Click += new System.EventHandler(this.lineColorToolStripMenuItem_Click);
             // 
             // fillColorToolStripMenuItem
             // 
             this.fillColorToolStripMenuItem.Name = "fillColorToolStripMenuItem";
-            this.fillColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fillColorToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.fillColorToolStripMenuItem.Text = "Fill color";
             this.fillColorToolStripMenuItem.Click += new System.EventHandler(this.fillColorToolStripMenuItem_Click_1);
             // 
@@ -136,20 +138,27 @@
             this.dtfenitionToolStripMenuItem.Checked = true;
             this.dtfenitionToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.dtfenitionToolStripMenuItem.Name = "dtfenitionToolStripMenuItem";
-            this.dtfenitionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dtfenitionToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.dtfenitionToolStripMenuItem.Text = "Defenition";
             this.dtfenitionToolStripMenuItem.Click += new System.EventHandler(this.dtfenitionToolStripMenuItem_Click);
+            // 
+            // jarvisToolStripMenuItem
+            // 
+            this.jarvisToolStripMenuItem.Name = "jarvisToolStripMenuItem";
+            this.jarvisToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.jarvisToolStripMenuItem.Text = "Jarvis";
+            this.jarvisToolStripMenuItem.Click += new System.EventHandler(this.jarvisToolStripMenuItem_Click);
             // 
             // colorDialog
             // 
             this.colorDialog.FullOpen = true;
             // 
-            // jarvisToolStripMenuItem
+            // radiusToolStripMenuItem
             // 
-            this.jarvisToolStripMenuItem.Name = "jarvisToolStripMenuItem";
-            this.jarvisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.jarvisToolStripMenuItem.Text = "Jarvis";
-            this.jarvisToolStripMenuItem.Click += new System.EventHandler(this.jarvisToolStripMenuItem_Click);
+            this.radiusToolStripMenuItem.Name = "radiusToolStripMenuItem";
+            this.radiusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.radiusToolStripMenuItem.Text = "Radius";
+            this.radiusToolStripMenuItem.Click += new System.EventHandler(this.radiusToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -185,6 +194,7 @@
         private System.Windows.Forms.ToolStripMenuItem shellToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dtfenitionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jarvisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem radiusToolStripMenuItem;
     }
 }
 

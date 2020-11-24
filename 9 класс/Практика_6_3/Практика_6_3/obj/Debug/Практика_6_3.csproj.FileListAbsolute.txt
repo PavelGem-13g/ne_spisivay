@@ -5,3 +5,10 @@ C:\Users\pashe\source\repos\Практика_6_3\Практика_6_3\obj\Debug\
 C:\Users\pashe\source\repos\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.csproj.CoreCompileInputs.cache
 C:\Users\pashe\source\repos\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.exe
 C:\Users\pashe\source\repos\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\bin\Debug\Практика_6_3.exe.config
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\bin\Debug\Практика_6_3.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\bin\Debug\Практика_6_3.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.csprojAssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\9 класс\Практика_6_3\Практика_6_3\obj\Debug\Практика_6_3.pdb
