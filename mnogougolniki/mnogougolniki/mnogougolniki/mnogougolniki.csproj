@@ -61,6 +61,7 @@
     <Compile Include="Radius.Designer.cs">
       <DependentUpon>Radius.cs</DependentUpon>
     </Compile>
+    <Compile Include="RadiusEventArgs.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="Sqare.cs" />
     <Compile Include="Triangle.cs" />

@@ -72,11 +72,15 @@ namespace mnogougolniki
                 isShell = value;
             }
         }
-        public int R
+        public static int R
         {
             get
             {
                 return r;
+            }
+            set 
+            {
+                r = value;
             }
         }
         public bool IsMovable

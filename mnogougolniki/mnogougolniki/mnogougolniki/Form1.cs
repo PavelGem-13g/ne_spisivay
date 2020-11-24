@@ -410,5 +410,10 @@ namespace mnogougolniki
             Radius form = new Radius();
             form.Show();
         }
+        public void OnRadiusChanged(object sender, RadiusEventArgs e) 
+        {
+            Shape.R = e.R;
+            Refresh();
+        }
     }
 }

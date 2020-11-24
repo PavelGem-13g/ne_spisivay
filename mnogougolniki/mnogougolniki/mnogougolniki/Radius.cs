@@ -12,9 +12,16 @@ namespace mnogougolniki
 {
     public partial class Radius : Form
     {
+        public static event RadiusChanged RC;
         public Radius()
         {
             InitializeComponent();
+            trackBar.Value = Shape.R;
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            RC(this, new RadiusEventArgs(trackBar.Value));
         }
     }
 }

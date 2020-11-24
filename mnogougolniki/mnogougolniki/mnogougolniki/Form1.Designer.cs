@@ -178,6 +178,9 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
+            //Radius delegate
+            Radius.RC += this.OnRadiusChanged;
         }
 
         #endregion
