@@ -202,6 +202,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
+            Radius.RC += this.OnRadiusChanged;
         }
 
         #endregion

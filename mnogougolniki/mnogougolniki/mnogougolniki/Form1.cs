@@ -22,7 +22,7 @@ namespace mnogougolniki
             timer.Tick += Timer_Tick;
             shapeType = 0;
             drawningType = 0;
-            interval = 70;
+            interval = 75;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -30,12 +30,12 @@ namespace mnogougolniki
             if (timer.Interval > interval) 
             {
                 timer.Stop();
-                Dynamics_points();
+                ShakeShell();
                 Refresh();
                 timer.Start();
             }
         }
-        void Dynamics_points() 
+        void ShakeShell() 
         {
             Random random = new Random();
             foreach (var item in shapes)
