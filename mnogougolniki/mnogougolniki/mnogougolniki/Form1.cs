@@ -31,6 +31,7 @@ namespace mnogougolniki
             {
                 timer.Stop();
                 ShakeShell();
+                ClearShell();
                 Refresh();
                 timer.Start();
             }
@@ -126,6 +127,11 @@ namespace mnogougolniki
                     item.IsMovable = false;
                 }
             }
+            ClearShell();
+            Refresh();
+        }
+        void ClearShell() 
+        {
             if (shapes.Count > 2)
             {
                 for (int i = shapes.Count - 1; i >= 0; i--)
@@ -135,9 +141,7 @@ namespace mnogougolniki
                         shapes.Remove(shapes[i]);
                     }
                 }
-                Refresh();
             }
-
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
