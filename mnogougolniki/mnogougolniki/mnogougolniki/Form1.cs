@@ -11,14 +11,38 @@ namespace mnogougolniki
         List<Shape> shapes;
         int shapeType;
         int drawningType;
+        Timer timer = new Timer();
+        private int interval;
+
         public Form1()
         {
             InitializeComponent();
             shapes = new List<Shape>();
             DoubleBuffered = true;
-
+            timer.Tick += Timer_Tick;
             shapeType = 0;
             drawningType = 0;
+            interval = 70;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (timer.Interval > interval) 
+            {
+                timer.Stop();
+                Dynamics_points();
+                Refresh();
+                timer.Start();
+            }
+        }
+        void Dynamics_points() 
+        {
+            Random random = new Random();
+            foreach (var item in shapes)
+            {
+                item.X += random.Next(-1, 2);
+                item.Y += random.Next(-1, 2);
+            }
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
@@ -128,11 +152,11 @@ namespace mnogougolniki
 
                 if (drawningType == 0)
                 {
-                    definitionDrawning(e.Graphics);
+                    DefinitionDrawning(e.Graphics);
                 }
                 if (drawningType == 1)
                 {
-                    jarvisDrawning(e.Graphics);
+                    JarvisDrawning(e.Graphics);
                 }
             }
             foreach (var item in shapes)
@@ -216,7 +240,7 @@ namespace mnogougolniki
             } while (iP != iA_copy);
             return !result;
         }
-        void definitionDrawning(Graphics g)
+        void DefinitionDrawning(Graphics g)
         {
             double b;
             double k;
@@ -289,7 +313,7 @@ namespace mnogougolniki
 
         }
 
-        void jarvisDrawning(Graphics g)
+        void JarvisDrawning(Graphics g)
         {
             int iA = 0, iP = 0;
             for (int i = 0; i < shapes.Count; i++)
@@ -414,6 +438,16 @@ namespace mnogougolniki
         {
             Shape.R = e.R;
             Refresh();
+        }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
         }
     }
 }

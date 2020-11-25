@@ -41,8 +41,10 @@
             this.shellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtfenitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jarvisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.radiusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.playButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,10 +151,6 @@
             this.jarvisToolStripMenuItem.Text = "Jarvis";
             this.jarvisToolStripMenuItem.Click += new System.EventHandler(this.jarvisToolStripMenuItem_Click);
             // 
-            // colorDialog
-            // 
-            this.colorDialog.FullOpen = true;
-            // 
             // radiusToolStripMenuItem
             // 
             this.radiusToolStripMenuItem.Name = "radiusToolStripMenuItem";
@@ -160,11 +158,37 @@
             this.radiusToolStripMenuItem.Text = "Radius";
             this.radiusToolStripMenuItem.Click += new System.EventHandler(this.radiusToolStripMenuItem_Click);
             // 
+            // colorDialog
+            // 
+            this.colorDialog.FullOpen = true;
+            // 
+            // playButton
+            // 
+            this.playButton.Location = new System.Drawing.Point(62, 0);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(42, 23);
+            this.playButton.TabIndex = 2;
+            this.playButton.Text = "Play";
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            // 
+            // stopButton
+            // 
+            this.stopButton.Location = new System.Drawing.Point(111, 0);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(44, 23);
+            this.stopButton.TabIndex = 3;
+            this.stopButton.Text = "Stop";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.stopButton);
+            this.Controls.Add(this.playButton);
             this.Controls.Add(this.menuStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -178,9 +202,6 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-
-            //Radius delegate
-            Radius.RC += this.OnRadiusChanged;
         }
 
         #endregion
@@ -198,6 +219,8 @@
         private System.Windows.Forms.ToolStripMenuItem dtfenitionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jarvisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem radiusToolStripMenuItem;
+        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Button stopButton;
     }
 }
 
