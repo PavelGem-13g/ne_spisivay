@@ -19,3 +19,4 @@ C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougo
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\os.exe
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\os.pdb
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Radius.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Dynamics.resources

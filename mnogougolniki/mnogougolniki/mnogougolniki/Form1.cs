@@ -11,34 +11,53 @@ namespace mnogougolniki
         List<Shape> shapes;
         int shapeType;
         int drawningType;
-        Timer timer = new Timer();
-        private int interval;
+        Timer timer;
+        static int t;
+        long time;
+        Random random;
+        bool isDrag;
+        public static int T 
+        {
+            get 
+            {
+                return t;
+            }
+            set 
+            {
+                t = value;
+            }
+        }
 
         public Form1()
         {
             InitializeComponent();
             shapes = new List<Shape>();
             DoubleBuffered = true;
+            timer = new Timer();
             timer.Tick += Timer_Tick;
+            time = 0;
             shapeType = 0;
             drawningType = 0;
-            interval = 75;
+            t = 99;
+            random = new Random();
+            isDrag = false;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (timer.Interval > interval) 
+            time += timer.Interval;
+            if (time > t)
             {
                 timer.Stop();
                 ShakeShell();
-                ClearShell();
+                if(!isDrag)ClearShell();
+                time = 0;
                 Refresh();
                 timer.Start();
             }
         }
         void ShakeShell() 
         {
-            Random random = new Random();
             foreach (var item in shapes)
             {
                 item.X += random.Next(-1, 2);
@@ -83,6 +102,7 @@ namespace mnogougolniki
                             item.IsMovable = true;
                             item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
                             flagAddShape = false;
+                            isDrag = true;
                         }
                     }
                     if (flagAddShape)
@@ -198,7 +218,7 @@ namespace mnogougolniki
             Point M = points[iA];
             M.X -= 1000;
             ///finding max angle
-            double minCos = 100000d;
+            double minCos = double.MaxValue;
             for (int i = 0; i < points.Count; i++)
             {
                 if (i != iA)
@@ -443,6 +463,10 @@ namespace mnogougolniki
             Shape.R = e.R;
             Refresh();
         }
+        public void OnTimeChanged(object sender, TimeEventArgs e) 
+        {
+            t = e.T;
+        }
 
         private void playButton_Click(object sender, EventArgs e)
         {
@@ -452,6 +476,13 @@ namespace mnogougolniki
         private void stopButton_Click(object sender, EventArgs e)
         {
             timer.Stop();
+            time = 0;
+        }
+
+        private void changeTimeButton_Click(object sender, EventArgs e)
+        {
+            Dynamics form = new Dynamics();
+            form.Show();
         }
     }
 }

@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Dynamics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dynamics.Designer.cs">
+      <DependentUpon>Dynamics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,7 +70,11 @@
     <Compile Include="RadiusEventArgs.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="Sqare.cs" />
+    <Compile Include="TimeEventArgs.cs" />
     <Compile Include="Triangle.cs" />
+    <EmbeddedResource Include="Dynamics.resx">
+      <DependentUpon>Dynamics.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

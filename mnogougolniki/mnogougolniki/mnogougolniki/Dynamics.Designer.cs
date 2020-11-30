@@ -1,6 +1,6 @@
 ﻿namespace mnogougolniki
 {
-    partial class Radius
+    partial class Dynamics
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Radius));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dynamics));
             this.trackBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.SuspendLayout();
@@ -36,15 +36,15 @@
             // trackBar
             // 
             this.trackBar.Location = new System.Drawing.Point(12, 12);
-            this.trackBar.Maximum = 100;
+            this.trackBar.Maximum = 2000;
             this.trackBar.Minimum = 1;
             this.trackBar.Name = "trackBar";
             this.trackBar.Size = new System.Drawing.Size(334, 45);
             this.trackBar.TabIndex = 0;
-            this.trackBar.Value = 1;
+            this.trackBar.Value = 50;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
             // 
-            // Radius
+            // Dynamics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -52,8 +52,8 @@
             this.Controls.Add(this.trackBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Radius";
-            this.Text = "Radius";
+            this.Name = "Dynamics";
+            this.Text = "Dynamics";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            //
+            // Radius 
+            //
+            Radius.RC += this.OnRadiusChanged;
+            //
+            // Dynamics
+            //
+            Dynamics.TC += this.OnTimeChanged;
+            
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +54,7 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.playButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
+            this.changeTimeButton = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,21 +95,21 @@
             this.sqareToolStripMenuItem.Checked = true;
             this.sqareToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.sqareToolStripMenuItem.Name = "sqareToolStripMenuItem";
-            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sqareToolStripMenuItem.Text = "Sqare";
             this.sqareToolStripMenuItem.Click += new System.EventHandler(this.sqareToolStripMenuItem_Click);
             // 
             // circleToolStripMenuItem
             // 
             this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
-            this.circleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.circleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.circleToolStripMenuItem.Text = "Circle";
             this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
             // 
             // triangleToolStripMenuItem
             // 
             this.triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
-            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleToolStripMenuItem.Text = "Triangle";
             this.triangleToolStripMenuItem.Click += new System.EventHandler(this.triangleToolStripMenuItem_Click);
             // 
@@ -182,11 +192,22 @@
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
             // 
+            // changeTimeButton
+            // 
+            this.changeTimeButton.Location = new System.Drawing.Point(162, -1);
+            this.changeTimeButton.Name = "changeTimeButton";
+            this.changeTimeButton.Size = new System.Drawing.Size(75, 23);
+            this.changeTimeButton.TabIndex = 4;
+            this.changeTimeButton.Text = "Change time";
+            this.changeTimeButton.UseVisualStyleBackColor = true;
+            this.changeTimeButton.Click += new System.EventHandler(this.changeTimeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.changeTimeButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.menuStrip2);
@@ -202,8 +223,6 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-
-            Radius.RC += this.OnRadiusChanged;
         }
 
         #endregion
@@ -223,6 +242,7 @@
         private System.Windows.Forms.ToolStripMenuItem radiusToolStripMenuItem;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button stopButton;
+        private System.Windows.Forms.Button changeTimeButton;
     }
 }
 
