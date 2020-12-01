@@ -16,13 +16,15 @@ namespace mnogougolniki
         long time;
         Random random;
         bool isDrag;
-        public static int T 
+        Radius radiusForm;
+        Dynamics dynamicsForm;
+        public static int T
         {
-            get 
+            get
             {
                 return t;
             }
-            set 
+            set
             {
                 t = value;
             }
@@ -41,6 +43,10 @@ namespace mnogougolniki
             t = 99;
             random = new Random();
             isDrag = false;
+            radiusForm = new Radius();
+            dynamicsForm = new Dynamics();
+            Radius.RC += this.OnRadiusChanged;
+            Dynamics.TC += this.OnTimeChanged;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -50,13 +56,13 @@ namespace mnogougolniki
             {
                 timer.Stop();
                 ShakeShell();
-                if(!isDrag)ClearShell();
+                if (!isDrag) ClearShell();
                 time = 0;
                 Refresh();
                 timer.Start();
             }
         }
-        void ShakeShell() 
+        void ShakeShell()
         {
             foreach (var item in shapes)
             {
@@ -84,7 +90,7 @@ namespace mnogougolniki
             if (MouseButtons.Left == e.Button)
             {
                 bool flagAddShape = true;
-                if (shapes.Count>2 && PolygonIsInside(e.Location))
+                if (shapes.Count > 2 && PolygonIsInside(e.Location))
                 {
                     foreach (var item in shapes)
                     {
@@ -140,6 +146,7 @@ namespace mnogougolniki
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
+            isDrag = false;
             if (MouseButtons.Left == e.Button)
             {
                 foreach (var item in shapes)
@@ -150,7 +157,7 @@ namespace mnogougolniki
             ClearShell();
             Refresh();
         }
-        void ClearShell() 
+        void ClearShell()
         {
             if (shapes.Count > 2)
             {
@@ -188,7 +195,7 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
-        void DrawPolygon(Graphics g) 
+        void DrawPolygon(Graphics g)
         {
             Point[] pointMass = new Point[shapes.Count];
             for (int i = 0; i < shapes.Count; i++)
@@ -228,7 +235,7 @@ namespace mnogougolniki
                     {
                         minCos = CosCounting(points[i], points[iA], M);
                         iP = i;
-                        if (points.Count - 1 == iP) 
+                        if (points.Count - 1 == iP)
                         {
                             result = true;
                         }
@@ -455,15 +462,30 @@ namespace mnogougolniki
 
         private void radiusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Radius form = new Radius();
-            form.Show();
+            if (radiusForm.IsDisposed)
+            {
+                radiusForm = new Radius();
+            }
+            if (!radiusForm.IsAccessible)
+            {
+                radiusForm.Activate();
+            }
+            if (radiusForm.WindowState == FormWindowState.Minimized)
+            {
+                radiusForm.WindowState = FormWindowState.Normal;
+            }
+            if (radiusForm.WindowState == FormWindowState.Maximized)
+            {
+                radiusForm.WindowState = FormWindowState.Normal;
+            }
+            radiusForm.Show();
         }
-        public void OnRadiusChanged(object sender, RadiusEventArgs e) 
+        public void OnRadiusChanged(object sender, RadiusEventArgs e)
         {
             Shape.R = e.R;
             Refresh();
         }
-        public void OnTimeChanged(object sender, TimeEventArgs e) 
+        public void OnTimeChanged(object sender, TimeEventArgs e)
         {
             t = e.T;
         }
@@ -481,8 +503,23 @@ namespace mnogougolniki
 
         private void changeTimeButton_Click(object sender, EventArgs e)
         {
-            Dynamics form = new Dynamics();
-            form.Show();
+            if (dynamicsForm.IsDisposed)
+            {
+                dynamicsForm = new Dynamics();
+            }
+            if (!dynamicsForm.IsAccessible)
+            {
+                dynamicsForm.Activate();
+            }
+            if (dynamicsForm.WindowState == FormWindowState.Minimized)
+            {
+                dynamicsForm.WindowState = FormWindowState.Normal;
+            }
+            if (dynamicsForm.WindowState == FormWindowState.Maximized)
+            {
+                dynamicsForm.WindowState = FormWindowState.Normal;
+            }
+            dynamicsForm.Show();
         }
     }
 }

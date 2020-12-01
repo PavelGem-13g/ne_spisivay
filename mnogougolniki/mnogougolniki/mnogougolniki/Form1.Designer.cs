@@ -28,14 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            //
-            // Radius 
-            //
-            Radius.RC += this.OnRadiusChanged;
-            //
-            // Dynamics
-            //
-            Dynamics.TC += this.OnTimeChanged;
             
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
