@@ -79,10 +79,10 @@ namespace mnogougolniki
                 {
                     shapes[i].X = e.Location.X + shapes[i].MoveShift.X;
                     shapes[i].Y = e.Location.Y + shapes[i].MoveShift.Y;
-                    Refresh();
+                    
                 }
             }
-
+            Refresh();
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
