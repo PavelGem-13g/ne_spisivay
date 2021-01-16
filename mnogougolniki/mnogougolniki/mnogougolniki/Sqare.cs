@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace mnogougolniki
 {
+    [Serializable]
     class Sqare : Shape
     {
         public Sqare(int x, int y) : base(x, y)

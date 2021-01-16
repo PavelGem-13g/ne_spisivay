@@ -1,0 +1,12 @@
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Release\os.exe.config
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Release\os.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Release\os.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.csprojAssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.Dynamics.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.Form1.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.Properties.Resources.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.Radius.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.csproj.GenerateResource.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\mnogougolniki.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\os.exe
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Release\os.pdb

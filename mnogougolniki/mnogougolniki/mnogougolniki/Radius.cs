@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace mnogougolniki
 {
-    public partial class Radius : Form
+    public partial class Radius : System.Windows.Forms.Form
     {
         public static event RadiusChanged RC;
         public Radius()

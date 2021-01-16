@@ -12,7 +12,6 @@ C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougo
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\os.exe
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\os.pdb
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csprojAssemblyReference.cache
-C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Form1.resources
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Properties.Resources.resources
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csproj.GenerateResource.cache
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csproj.CoreCompileInputs.cache
@@ -20,3 +19,4 @@ C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougo
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\os.pdb
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Radius.resources
 C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Dynamics.resources
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Form.resources

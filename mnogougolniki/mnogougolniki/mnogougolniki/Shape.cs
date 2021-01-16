@@ -1,18 +1,22 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace mnogougolniki
 {
-    abstract class Shape
+    
+    [Serializable]abstract class Shape
     {
         static int r;
         static Color lineColor;
         static Color fillColor;
-        bool isMovable;
-        bool isShell;
+        [NonSerialized] bool isMovable;
+        [NonSerialized]bool isShell;
         int x;
         int y;
-        int xShift;
-        int yShift;
+        [NonSerialized]int xShift;
+        [NonSerialized]int yShift;
         public int X
         {
             get

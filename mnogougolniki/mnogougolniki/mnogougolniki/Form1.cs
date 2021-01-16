@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
-
 
 namespace mnogougolniki
 {
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
         List<Shape> shapes;
         int shapeType;
@@ -18,6 +19,7 @@ namespace mnogougolniki
         bool isDrag;
         Radius radiusForm;
         Dynamics dynamicsForm;
+        string fileName;
         public static int T
         {
             get
@@ -30,7 +32,7 @@ namespace mnogougolniki
             }
         }
 
-        public Form1()
+        public Form()
         {
             InitializeComponent();
             shapes = new List<Shape>();
@@ -47,6 +49,7 @@ namespace mnogougolniki
             dynamicsForm = new Dynamics();
             Radius.RC += this.OnRadiusChanged;
             Dynamics.TC += this.OnTimeChanged;
+            fileName = "";
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -54,20 +57,20 @@ namespace mnogougolniki
             time += timer.Interval;
             if (time > t)
             {
-                timer.Stop();
+                //timer.Stop();
                 ShakeShell();
                 if (!isDrag) ClearShell();
                 time = 0;
                 Refresh();
-                timer.Start();
+                //timer.Start();
             }
         }
         void ShakeShell()
         {
             foreach (var item in shapes)
             {
-                item.X += random.Next(-1, 2);
-                item.Y += random.Next(-1, 2);
+                item.X += random.Next(-2, 3);
+                item.Y += random.Next(-2, 3);
             }
         }
 
@@ -79,7 +82,7 @@ namespace mnogougolniki
                 {
                     shapes[i].X = e.Location.X + shapes[i].MoveShift.X;
                     shapes[i].Y = e.Location.Y + shapes[i].MoveShift.Y;
-                    
+
                 }
             }
             Refresh();
@@ -520,6 +523,97 @@ namespace mnogougolniki
                 dynamicsForm.WindowState = FormWindowState.Normal;
             }
             dynamicsForm.Show();
+        }
+        void SaveAsFile()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "poly files (*.poly)|*poly";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFileDialog.FileName;
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                binaryFormatter.Serialize(fileStream, shapes);
+                binaryFormatter.Serialize(fileStream, Shape.R);
+                binaryFormatter.Serialize(fileStream, Shape.FillColor);
+                binaryFormatter.Serialize(fileStream, Shape.LineColor);
+                fileName = saveFileDialog.FileName;
+                UpdateTopPanel();
+            }
+        }
+        void SaveFile()
+        {
+            if (fileName.Length > 0)
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                binaryFormatter.Serialize(fileStream, shapes);
+                binaryFormatter.Serialize(fileStream, Shape.R);
+                binaryFormatter.Serialize(fileStream, Shape.FillColor);
+                binaryFormatter.Serialize(fileStream, Shape.LineColor);
+                fileStream.Close();
+            }
+            else
+            {
+                SaveAsFile();
+            }
+        }
+        void LoadFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "poly files (*.poly)|*poly";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                shapes = (List<Shape>)binaryFormatter.Deserialize(fileStream);
+                Shape.R = (int)binaryFormatter.Deserialize(fileStream);
+                Shape.FillColor = (Color)binaryFormatter.Deserialize(fileStream);
+                Shape.LineColor = (Color)binaryFormatter.Deserialize(fileStream);
+                fileStream.Close();
+                fileName = openFileDialog.FileName;
+                UpdateTopPanel();
+            }
+        }
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shapes = new List<Shape>();
+            Refresh();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadFile();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveAsFile();
+        }
+        void UpdateTopPanel()
+        {
+            string nameOfFile = fileName;
+            int i = nameOfFile.Length - 1;
+            while (nameOfFile[i] != '\\')
+            {
+                i--;
+            }
+            nameOfFile = nameOfFile.Substring(i + 1);
+            i = 0;
+            while (nameOfFile[i] != '.')
+            {
+                i++;
+            }
+            nameOfFile = nameOfFile.Substring(0, i);
+            //MessageBox.Show(nameOfFile.Substring(i + 1));
+            //nameOfFile = nameOfFile.Substring(i + 1);
+            //nameOfFile = nameOfFile.Substring(i, nameOfFile.Length - 1);
+            Text = "Mnogugolniki - " + nameOfFile;
         }
     }
 }

@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace mnogougolniki
 {
-    public partial class Dynamics : Form
+    public partial class Dynamics : System.Windows.Forms.Form
     {
         public static event TimeChanged TC;
         public Dynamics()
         {
             InitializeComponent();
-            trackBar.Value = Form1.T;
+            trackBar.Value = Form.T;
         }
 
         private void trackBar_Scroll(object sender, EventArgs e)

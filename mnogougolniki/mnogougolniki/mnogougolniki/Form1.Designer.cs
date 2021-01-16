@@ -1,6 +1,6 @@
 ﻿namespace mnogougolniki
 {
-    partial class Form1
+    partial class Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.fikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shapeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sqareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +47,10 @@
             this.playButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.changeTimeButton = new System.Windows.Forms.Button();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,12 +58,24 @@
             // 
             this.menuStrip2.BackColor = System.Drawing.SystemColors.Info;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fikToolStripMenuItem,
             this.toolToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(800, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
+            // 
+            // fikToolStripMenuItem
+            // 
+            this.fikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.loadToolStripMenuItem});
+            this.fikToolStripMenuItem.Name = "fikToolStripMenuItem";
+            this.fikToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fikToolStripMenuItem.Text = "File";
             // 
             // toolToolStripMenuItem
             // 
@@ -79,7 +95,7 @@
             this.circleToolStripMenuItem,
             this.triangleToolStripMenuItem});
             this.shapeToolStripMenuItem.Name = "shapeToolStripMenuItem";
-            this.shapeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shapeToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.shapeToolStripMenuItem.Text = "Shape";
             // 
             // sqareToolStripMenuItem
@@ -87,21 +103,21 @@
             this.sqareToolStripMenuItem.Checked = true;
             this.sqareToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.sqareToolStripMenuItem.Name = "sqareToolStripMenuItem";
-            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sqareToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.sqareToolStripMenuItem.Text = "Sqare";
             this.sqareToolStripMenuItem.Click += new System.EventHandler(this.sqareToolStripMenuItem_Click);
             // 
             // circleToolStripMenuItem
             // 
             this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
-            this.circleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.circleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.circleToolStripMenuItem.Text = "Circle";
             this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
             // 
             // triangleToolStripMenuItem
             // 
             this.triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
-            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.triangleToolStripMenuItem.Text = "Triangle";
             this.triangleToolStripMenuItem.Click += new System.EventHandler(this.triangleToolStripMenuItem_Click);
             // 
@@ -111,7 +127,7 @@
             this.lineColorToolStripMenuItem,
             this.fillColorToolStripMenuItem});
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.colorToolStripMenuItem.Text = "Color";
             // 
             // lineColorToolStripMenuItem
@@ -134,7 +150,7 @@
             this.dtfenitionToolStripMenuItem,
             this.jarvisToolStripMenuItem});
             this.shellToolStripMenuItem.Name = "shellToolStripMenuItem";
-            this.shellToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shellToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.shellToolStripMenuItem.Text = "Shell";
             // 
             // dtfenitionToolStripMenuItem
@@ -156,7 +172,7 @@
             // radiusToolStripMenuItem
             // 
             this.radiusToolStripMenuItem.Name = "radiusToolStripMenuItem";
-            this.radiusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.radiusToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.radiusToolStripMenuItem.Text = "Radius";
             this.radiusToolStripMenuItem.Click += new System.EventHandler(this.radiusToolStripMenuItem_Click);
             // 
@@ -166,7 +182,7 @@
             // 
             // playButton
             // 
-            this.playButton.Location = new System.Drawing.Point(62, 0);
+            this.playButton.Location = new System.Drawing.Point(158, 1);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(42, 23);
             this.playButton.TabIndex = 2;
@@ -176,7 +192,7 @@
             // 
             // stopButton
             // 
-            this.stopButton.Location = new System.Drawing.Point(111, 0);
+            this.stopButton.Location = new System.Drawing.Point(206, 0);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(44, 23);
             this.stopButton.TabIndex = 3;
@@ -186,7 +202,7 @@
             // 
             // changeTimeButton
             // 
-            this.changeTimeButton.Location = new System.Drawing.Point(162, -1);
+            this.changeTimeButton.Location = new System.Drawing.Point(256, 0);
             this.changeTimeButton.Name = "changeTimeButton";
             this.changeTimeButton.Size = new System.Drawing.Size(75, 23);
             this.changeTimeButton.TabIndex = 4;
@@ -194,7 +210,35 @@
             this.changeTimeButton.UseVisualStyleBackColor = true;
             this.changeTimeButton.Click += new System.EventHandler(this.changeTimeButton_Click);
             // 
-            // Form1
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -204,7 +248,7 @@
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.menuStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Form";
             this.Text = "Mnogugolniki";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
@@ -235,6 +279,11 @@
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button changeTimeButton;
+        private System.Windows.Forms.ToolStripMenuItem fikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
     }
 }
 
