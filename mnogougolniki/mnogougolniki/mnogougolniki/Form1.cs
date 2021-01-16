@@ -530,33 +530,33 @@ namespace mnogougolniki
             saveFileDialog.Filter = "poly files (*.poly)|*poly";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileName = saveFileDialog.FileName;
+                if (saveFileDialog.FileName.Contains(".poly"))
+                {
+                    fileName = saveFileDialog.FileName;
+                }
+                else
+                {
+                    fileName = saveFileDialog.FileName + ".poly";
+                }
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
                 FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
                 binaryFormatter.Serialize(fileStream, shapes);
                 binaryFormatter.Serialize(fileStream, Shape.R);
                 binaryFormatter.Serialize(fileStream, Shape.FillColor);
                 binaryFormatter.Serialize(fileStream, Shape.LineColor);
-                fileName = saveFileDialog.FileName;
                 UpdateTopPanel();
             }
         }
         void SaveFile()
         {
-            if (fileName.Length > 0)
-            {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
-                binaryFormatter.Serialize(fileStream, shapes);
-                binaryFormatter.Serialize(fileStream, Shape.R);
-                binaryFormatter.Serialize(fileStream, Shape.FillColor);
-                binaryFormatter.Serialize(fileStream, Shape.LineColor);
-                fileStream.Close();
-            }
-            else
-            {
-                SaveAsFile();
-            }
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+            binaryFormatter.Serialize(fileStream, shapes);
+            binaryFormatter.Serialize(fileStream, Shape.R);
+            binaryFormatter.Serialize(fileStream, Shape.FillColor);
+            binaryFormatter.Serialize(fileStream, Shape.LineColor);
+            fileStream.Close();
+            UpdateTopPanel();
         }
         void LoadFile()
         {
@@ -578,12 +578,21 @@ namespace mnogougolniki
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             shapes = new List<Shape>();
+            fileName = "";
+            Text = "Mnogugolniki";
             Refresh();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFile();
+            if (fileName.Length > 0)
+            {
+                SaveFile();
+            }
+            else
+            {
+                SaveAsFile();
+            }
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -604,15 +613,6 @@ namespace mnogougolniki
                 i--;
             }
             nameOfFile = nameOfFile.Substring(i + 1);
-            i = 0;
-            while (nameOfFile[i] != '.')
-            {
-                i++;
-            }
-            nameOfFile = nameOfFile.Substring(0, i);
-            //MessageBox.Show(nameOfFile.Substring(i + 1));
-            //nameOfFile = nameOfFile.Substring(i + 1);
-            //nameOfFile = nameOfFile.Substring(i, nameOfFile.Length - 1);
             Text = "Mnogugolniki - " + nameOfFile;
         }
     }
