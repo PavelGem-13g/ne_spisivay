@@ -20,6 +20,7 @@ namespace mnogougolniki
         Radius radiusForm;
         Dynamics dynamicsForm;
         string fileName;
+        bool isChanged;
         public static int T
         {
             get
@@ -50,6 +51,8 @@ namespace mnogougolniki
             Radius.RC += this.OnRadiusChanged;
             Dynamics.TC += this.OnTimeChanged;
             fileName = "";
+            isChanged = false;
+            KeyPreview = true;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -130,7 +133,7 @@ namespace mnogougolniki
                         }
                     }
                 }
-
+                isChanged = true;
 
             }
             if (MouseButtons.Right == e.Button)
@@ -143,6 +146,7 @@ namespace mnogougolniki
                         break;
                     }
                 }
+                isChanged = true;
             }
             Refresh();
         }
@@ -560,6 +564,13 @@ namespace mnogougolniki
         }
         void LoadFile()
         {
+            if (isChanged)
+            {
+                if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Save();
+                }
+            }
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "poly files (*.poly)|*poly";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -572,18 +583,39 @@ namespace mnogougolniki
                 Shape.LineColor = (Color)binaryFormatter.Deserialize(fileStream);
                 fileStream.Close();
                 fileName = openFileDialog.FileName;
+                isChanged = false;  
                 UpdateTopPanel();
             }
         }
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (isChanged) 
+            {
+                if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Save();
+                }
+                isChanged = false;
+            }
+            New();
+            Refresh();
+        }
+        public void New() 
+        {
             shapes = new List<Shape>();
+            Shape.FillColor = Color.Black;
+            Shape.LineColor = Color.Black;
+            Shape.R = 50;
             fileName = "";
             Text = "Mnogugolniki";
-            Refresh();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        void Save() 
         {
             if (fileName.Length > 0)
             {
@@ -593,6 +625,8 @@ namespace mnogougolniki
             {
                 SaveAsFile();
             }
+            isChanged = false;
+        
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -603,6 +637,7 @@ namespace mnogougolniki
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveAsFile();
+            isChanged = false;
         }
         void UpdateTopPanel()
         {
@@ -614,6 +649,43 @@ namespace mnogougolniki
             }
             nameOfFile = nameOfFile.Substring(i + 1);
             Text = "Mnogugolniki - " + nameOfFile;
+        }
+
+        private void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S) 
+            {
+                if (fileName.Length > 0)
+                {
+                    SaveFile();
+                }
+                else
+                {
+                    LoadFile();
+                }
+            }
+            if (e.Control && e.KeyCode == Keys.O)
+            {
+                if (fileName.Length > 0)
+                {
+                    SaveFile();
+                }
+                else
+                {
+                    SaveAsFile();
+                }
+            }
+        }
+
+        private void Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isChanged) 
+            {
+                if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Save();
+                }
+            }
         }
     }
 }
