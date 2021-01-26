@@ -442,6 +442,7 @@ namespace mnogougolniki
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             Shape.LineColor = colorDialog.Color;
+            isChanged = true;
             Refresh();
         }
 
@@ -450,6 +451,7 @@ namespace mnogougolniki
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             Shape.FillColor = colorDialog.Color;
+            isChanged = true;
             Refresh();
         }
 
@@ -490,6 +492,7 @@ namespace mnogougolniki
         public void OnRadiusChanged(object sender, RadiusEventArgs e)
         {
             Shape.R = e.R;
+            isChanged = true;
             Refresh();
         }
         public void OnTimeChanged(object sender, TimeEventArgs e)
