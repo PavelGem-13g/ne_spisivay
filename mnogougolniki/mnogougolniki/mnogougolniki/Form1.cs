@@ -1,10 +1,9 @@
-﻿using System;
+﻿using MnogugolnikiShapeLibrary;
+using MnogugolnikiShapeLibrary.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
-using MnogugolnikiShapeLibrary;
 
 namespace mnogougolniki
 {
@@ -532,149 +531,77 @@ namespace mnogougolniki
             }
             dynamicsForm.Show();
         }
-        void SaveAsFile()
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "poly files (*.poly)|*poly";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                if (saveFileDialog.FileName.Contains(".poly"))
-                {
-                    fileName = saveFileDialog.FileName;
-                }
-                else
-                {
-                    fileName = saveFileDialog.FileName + ".poly";
-                }
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
-                binaryFormatter.Serialize(fileStream, shapes);
-                binaryFormatter.Serialize(fileStream, Shape.R);
-                binaryFormatter.Serialize(fileStream, Shape.FillColor);
-                binaryFormatter.Serialize(fileStream, Shape.LineColor);
-                UpdateTopPanel();
-            }
-        }
-        void SaveFile()
-        {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
-            binaryFormatter.Serialize(fileStream, shapes);
-            binaryFormatter.Serialize(fileStream, Shape.R);
-            binaryFormatter.Serialize(fileStream, Shape.FillColor);
-            binaryFormatter.Serialize(fileStream, Shape.LineColor);
-            fileStream.Close();
-            UpdateTopPanel();
-        }
-        void LoadFile()
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (isChanged)
             {
                 if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Save();
-                }
-            }
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "poly files (*.poly)|*poly";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
-                shapes = (List<Shape>)binaryFormatter.Deserialize(fileStream);
-                Shape.R = (int)binaryFormatter.Deserialize(fileStream);
-                Shape.FillColor = (Color)binaryFormatter.Deserialize(fileStream);
-                Shape.LineColor = (Color)binaryFormatter.Deserialize(fileStream);
-                fileStream.Close();
-                fileName = openFileDialog.FileName;
-                isChanged = false;  
-                UpdateTopPanel();
-            }
-        }
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (isChanged) 
-            {
-                if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Save();
+                    ShapeData.Save(ref shapes, ref fileName, ref isChanged);
                 }
                 isChanged = false;
             }
-            New();
+            string tempText = "";
+            ShapeData.New(ref shapes,ref fileName,ref tempText);
+            Text = tempText;
             Refresh();
-        }
-        public void New() 
-        {
-            shapes = new List<Shape>();
-            Shape.FillColor = Color.Black;
-            Shape.LineColor = Color.Black;
-            Shape.R = 50;
-            fileName = "";
-            Text = "Mnogugolniki";
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Save();
-        }
-
-        void Save() 
-        {
-            if (fileName.Length > 0)
-            {
-                SaveFile();
-            }
-            else
-            {
-                SaveAsFile();
-            }
-            isChanged = false;
-        
+            ShapeData.Save(ref shapes, ref fileName, ref isChanged);
+            UpdateTopPanel();
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadFile();
+            //LoadFile();
+            ShapeData.LoadFile(ref shapes, ref fileName, ref isChanged);
+            UpdateTopPanel();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveAsFile();
-            isChanged = false;
+            ShapeData.SaveAsFile(ref shapes, ref fileName, ref isChanged);
+            UpdateTopPanel();
         }
         void UpdateTopPanel()
         {
-            string nameOfFile = fileName;
-            int i = nameOfFile.Length - 1;
-            while (nameOfFile[i] != '\\')
+            if (fileName.Length > 0)
             {
-                i--;
+                string nameOfFile = fileName;
+                int i = nameOfFile.Length - 1;
+                while (nameOfFile[i] != '\\')
+                {
+                    i--;
+                }
+                nameOfFile = nameOfFile.Substring(i + 1);
+                Text = "Mnogugolniki - " + nameOfFile;
             }
-            nameOfFile = nameOfFile.Substring(i + 1);
-            Text = "Mnogugolniki - " + nameOfFile;
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.S)
             {
-                SaveFile();
+                ShapeData.Save(ref shapes, ref fileName, ref isChanged);
+                //SaveFile();
             }
 
             if (e.Control && e.KeyCode == Keys.O)
             {
-                LoadFile();
+                ShapeData.LoadFile(ref shapes, ref fileName, ref isChanged);
+                //LoadFile();
             }
         }
 
         private void Form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (isChanged) 
+            if (isChanged)
             {
                 if (MessageBox.Show("Save file?", "Error", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Save();
+                    ShapeData.Save(ref shapes, ref fileName, ref isChanged);
                 }
             }
         }

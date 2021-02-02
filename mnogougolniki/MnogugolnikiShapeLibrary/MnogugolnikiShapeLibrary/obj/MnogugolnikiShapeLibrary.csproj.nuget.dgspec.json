@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj": {}
+    "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj": {
+    "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
         "projectName": "MnogugolnikiShapeLibrary",
-        "projectPath": "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
-        "packagesPath": "C:\\Users\\Павел\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\obj\\",
+        "projectPath": "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
+        "packagesPath": "C:\\Users\\pashe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Павел\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pashe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

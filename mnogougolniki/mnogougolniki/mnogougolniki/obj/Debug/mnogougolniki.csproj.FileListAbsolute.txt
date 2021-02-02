@@ -25,3 +25,6 @@ C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mno
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\MnogugolnikiShapeLibrary.dll
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\System.Drawing.Common.dll
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csproj.CopyComplete
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\System.Drawing.Common.dll
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csproj.CopyComplete
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\MnogugolnikiShapeLibrary.dll
