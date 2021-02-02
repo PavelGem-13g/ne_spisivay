@@ -22,3 +22,6 @@ C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougo
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Dynamics.resources
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Form.resources
 C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.Radius.resources
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\MnogugolnikiShapeLibrary.dll
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\bin\Debug\System.Drawing.Common.dll
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\mnogougolniki\mnogougolniki\obj\Debug\mnogougolniki.csproj.CopyComplete

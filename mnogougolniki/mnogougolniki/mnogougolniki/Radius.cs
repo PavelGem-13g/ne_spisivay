@@ -16,7 +16,7 @@ namespace mnogougolniki
         public Radius()
         {
             InitializeComponent();
-            trackBar.Value = Shape.R;
+            trackBar.Value = MnogugolnikiShapeLibrary.Shape.R;
         }
 
         private void trackBar_Scroll(object sender, EventArgs e)

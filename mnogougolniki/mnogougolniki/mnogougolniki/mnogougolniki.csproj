@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MnogugolnikiShapeLibrary">
+      <HintPath>DLL\MnogugolnikiShapeLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Circle.cs" />
     <Compile Include="Dynamics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,10 +73,7 @@
       <DependentUpon>Radius.cs</DependentUpon>
     </Compile>
     <Compile Include="RadiusEventArgs.cs" />
-    <Compile Include="Shape.cs" />
-    <Compile Include="Sqare.cs" />
     <Compile Include="TimeEventArgs.cs" />
-    <Compile Include="Triangle.cs" />
     <EmbeddedResource Include="Dynamics.resx">
       <DependentUpon>Dynamics.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +92,7 @@
     <EmbeddedResource Include="Radius.resx">
       <DependentUpon>Radius.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -198,7 +198,7 @@ namespace mnogougolniki
                     JarvisDrawning(e.Graphics);
                 }
             }
-            foreach (var item in shapes)
+            foreach (Shape item in shapes)
             {
                 item.Draw(e.Graphics);
             }
