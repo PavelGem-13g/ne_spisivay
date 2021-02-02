@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using MnogugolnikiShapeLibrary;
 
 namespace mnogougolniki
 {
@@ -656,27 +657,14 @@ namespace mnogougolniki
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.S) 
+            if (e.Control && e.KeyCode == Keys.S)
             {
-                if (fileName.Length > 0)
-                {
-                    SaveFile();
-                }
-                else
-                {
-                    LoadFile();
-                }
+                SaveFile();
             }
+
             if (e.Control && e.KeyCode == Keys.O)
             {
-                if (fileName.Length > 0)
-                {
-                    SaveFile();
-                }
-                else
-                {
-                    SaveAsFile();
-                }
+                LoadFile();
             }
         }
 

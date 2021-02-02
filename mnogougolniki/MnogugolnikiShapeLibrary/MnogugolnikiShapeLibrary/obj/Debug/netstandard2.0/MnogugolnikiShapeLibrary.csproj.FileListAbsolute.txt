@@ -1,0 +1,9 @@
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\bin\Debug\netstandard2.0\MnogugolnikiShapeLibrary.deps.json
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\bin\Debug\netstandard2.0\MnogugolnikiShapeLibrary.dll
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\bin\Debug\netstandard2.0\MnogugolnikiShapeLibrary.pdb
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.csprojAssemblyReference.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.AssemblyInfoInputs.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.AssemblyInfo.cs
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.dll
+C:\Users\Павел\Documents\GitHub\ne_spisivay\mnogougolniki\MnogugolnikiShapeLibrary\MnogugolnikiShapeLibrary\obj\Debug\netstandard2.0\MnogugolnikiShapeLibrary.pdb
