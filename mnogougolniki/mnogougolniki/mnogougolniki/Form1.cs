@@ -1,5 +1,6 @@
 ﻿using MnogugolnikiShapeLibrary;
 using MnogugolnikiShapeLibrary.Data;
+using MnogougolnikiUndoRedo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -60,12 +61,10 @@ namespace mnogougolniki
             time += timer.Interval;
             if (time > t)
             {
-                //timer.Stop();
                 ShakeShell();
                 if (!isDrag) ClearShell();
                 time = 0;
                 Refresh();
-                //timer.Start();
             }
         }
         void ShakeShell()

@@ -1,0 +1,16 @@
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\MnogougolnikiUndoRedo.dll
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\MnogougolnikiUndoRedo.pdb
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\System.Drawing.Common.dll
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csprojAssemblyReference.cache
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csproj.CoreCompileInputs.cache
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csproj.CopyComplete
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.dll
+C:\Users\pashe\source\repos\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\MnogougolnikiUndoRedo.dll
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\MnogougolnikiUndoRedo.pdb
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\bin\Debug\System.Drawing.Common.dll
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csprojAssemblyReference.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csproj.CoreCompileInputs.cache
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.csproj.CopyComplete
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.dll
+C:\Users\pashe\Documents\GitHub\ne_spisivay\mnogougolniki\MnogougolnikiUndoRedo\MnogougolnikiUndoRedo\obj\Debug\MnogougolnikiUndoRedo.pdb
