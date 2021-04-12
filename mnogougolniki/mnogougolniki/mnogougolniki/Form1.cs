@@ -682,7 +682,7 @@ namespace mnogougolniki
         {
             Console.WriteLine("redo cleared");
             redo.Clear();
-            ClearShell();
+            //ClearShell();
         }
     }
 }
