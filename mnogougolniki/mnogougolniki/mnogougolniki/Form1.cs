@@ -1,6 +1,6 @@
-﻿using MnogugolnikiShapeLibrary;
+﻿using mnogougolniki.UndoRedo;
+using MnogugolnikiShapeLibrary;
 using MnogugolnikiShapeLibrary.Data;
-using MnogougolnikiUndoRedo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,18 +10,21 @@ namespace mnogougolniki
 {
     public partial class Form : System.Windows.Forms.Form
     {
-        List<Shape> shapes;
-        int shapeType;
+        public static Form instance;
+        public List<Shape> shapes;
+        public int shapeType;
         int drawningType;
         Timer timer;
         static int t;
         long time;
         Random random;
         bool isDrag;
-        Radius radiusForm;
+        public Radius radiusForm;
         Dynamics dynamicsForm;
         string fileName;
         bool isChanged;
+        public Stack<Change> undo;
+        public Stack<Change> redo;
         public static int T
         {
             get
@@ -36,6 +39,7 @@ namespace mnogougolniki
 
         public Form()
         {
+            instance = this;
             InitializeComponent();
             shapes = new List<Shape>();
             DoubleBuffered = true;
@@ -54,6 +58,9 @@ namespace mnogougolniki
             fileName = "";
             isChanged = false;
             KeyPreview = true;
+            undo = new Stack<Change>();
+            redo = new Stack<Change>();
+            Change.shapes = shapes;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -84,7 +91,6 @@ namespace mnogougolniki
                 {
                     shapes[i].X = e.Location.X + shapes[i].MoveShift.X;
                     shapes[i].Y = e.Location.Y + shapes[i].MoveShift.Y;
-
                 }
             }
             Refresh();
@@ -92,8 +98,10 @@ namespace mnogougolniki
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            
             if (MouseButtons.Left == e.Button)
             {
+                ClearRedoStack();
                 bool flagAddShape = true;
                 if (shapes.Count > 2 && PolygonIsInside(e.Location))
                 {
@@ -101,7 +109,10 @@ namespace mnogougolniki
                     {
                         item.IsMovable = true;
                         item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
+                        item.StartPositionX = item.X;
+                        item.StartPositionY = item.Y;
                         flagAddShape = false;
+                        isDrag = true;
                     }
                 }
                 else
@@ -112,6 +123,8 @@ namespace mnogougolniki
                         {
                             item.IsMovable = true;
                             item.MoveShift = new Point(item.X - e.X, item.Y - e.Y);
+                            item.StartPositionX = item.X;
+                            item.StartPositionY = item.Y;
                             flagAddShape = false;
                             isDrag = true;
                         }
@@ -130,6 +143,8 @@ namespace mnogougolniki
                         {
                             shapes.Add(new Triangle(e.Location));
                         }
+
+                        undo.Push(new ChangeAddShape(e.Location, shapeType, shapes[shapes.Count - 1]));
                     }
                 }
                 isChanged = true;
@@ -137,10 +152,12 @@ namespace mnogougolniki
             }
             if (MouseButtons.Right == e.Button)
             {
+                ClearRedoStack();
                 for (int i = shapes.Count - 1; 0 <= i; i--)
                 {
                     if (shapes[i].IsInside(e.Location))
                     {
+                        undo.Push(new ChangeDeleteShape(e.Location, shapeType, shapes[i]));
                         shapes.Remove(shapes[i]);
                         break;
                     }
@@ -152,12 +169,19 @@ namespace mnogougolniki
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
+            ClearRedoStack();
+            if (isDrag)
+            {
+                undo.Push(new ChangeFigureMove());
+            }   
             isDrag = false;
             if (MouseButtons.Left == e.Button)
             {
                 foreach (var item in shapes)
                 {
                     item.IsMovable = false;
+                    item.StartPositionX = item.X;
+                    item.StartPositionY = item.Y;
                 }
             }
             ClearShell();
@@ -201,6 +225,7 @@ namespace mnogougolniki
                 item.Draw(e.Graphics);
             }
         }
+
         void DrawPolygon(Graphics g)
         {
             Point[] pointMass = new Point[shapes.Count];
@@ -210,6 +235,7 @@ namespace mnogougolniki
             }
             g.FillPolygon(new SolidBrush(Shape.LineColor), pointMass);
         }
+
         bool PolygonIsInside(Point point)
         {
             bool result = false;
@@ -277,6 +303,7 @@ namespace mnogougolniki
             } while (iP != iA_copy);
             return !result;
         }
+
         void DefinitionDrawning(Graphics g)
         {
             double b;
@@ -385,7 +412,6 @@ namespace mnogougolniki
             //cycled finding
             int iA_copy = iA;
             int iM = 0;
-            do
             {
                 minCos = double.MaxValue;
                 for (int i = 0; i < shapes.Count; i++)
@@ -404,16 +430,20 @@ namespace mnogougolniki
                 shapes[iM].IsShell = true;
                 iA = iP;
                 iP = iM;
-            } while (iP != iA_copy);
+            } while (iP != iA_copy) ;
         }
+
         double CosCounting(Point a, Point b, Point c)
         {
             Point VectorA = new Point(b.X - a.X, b.Y - a.Y);
             Point VectorB = new Point(b.X - c.X, b.Y - c.Y);
             return ((VectorA.X * VectorB.X) + (VectorA.Y * VectorB.Y)) / (Math.Sqrt(VectorA.X * VectorA.X + VectorA.Y * VectorA.Y) * Math.Sqrt(VectorB.X * VectorB.X + VectorB.Y * VectorB.Y));
         }
+
         private void sqareToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            ClearRedoStack();
+            undo.Push(new ChangeShapeType(shapeType, 0));
             shapeType = 0;
             sqareToolStripMenuItem.Checked = true;
             circleToolStripMenuItem.Checked = false;
@@ -422,6 +452,8 @@ namespace mnogougolniki
 
         private void circleToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            ClearRedoStack();
+            undo.Push(new ChangeShapeType(shapeType, 1));
             shapeType = 1;
             sqareToolStripMenuItem.Checked = false;
             circleToolStripMenuItem.Checked = true;
@@ -430,6 +462,8 @@ namespace mnogougolniki
 
         private void triangleToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            ClearRedoStack();
+            undo.Push(new ChangeShapeType(shapeType, 2));
             shapeType = 2;
             sqareToolStripMenuItem.Checked = false;
             circleToolStripMenuItem.Checked = false;
@@ -438,8 +472,10 @@ namespace mnogougolniki
 
         private void lineColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ClearRedoStack();
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
+            undo.Push(new ChangeColor(Shape.FillColor, colorDialog.Color, 1));
             Shape.LineColor = colorDialog.Color;
             isChanged = true;
             Refresh();
@@ -447,8 +483,10 @@ namespace mnogougolniki
 
         private void fillColorToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            ClearRedoStack();
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
+            undo.Push(new ChangeColor(Shape.FillColor, colorDialog.Color, 0));
             Shape.FillColor = colorDialog.Color;
             isChanged = true;
             Refresh();
@@ -494,6 +532,7 @@ namespace mnogougolniki
             isChanged = true;
             Refresh();
         }
+
         public void OnTimeChanged(object sender, TimeEventArgs e)
         {
             t = e.T;
@@ -501,11 +540,18 @@ namespace mnogougolniki
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            foreach (var item in shapes)
+            {
+                item.StartPositionX = item.X;
+                item.StartPositionY = item.Y;
+            }
             timer.Start();
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
+            ClearRedoStack();
+            undo.Push(new ChangeFigureMove());
             timer.Stop();
             time = 0;
         }
@@ -541,7 +587,7 @@ namespace mnogougolniki
                 isChanged = false;
             }
             string tempText = "";
-            ShapeData.New(ref shapes,ref fileName,ref tempText);
+            ShapeData.New(ref shapes, ref fileName, ref tempText);
             Text = tempText;
             Refresh();
         }
@@ -554,7 +600,6 @@ namespace mnogougolniki
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //LoadFile();
             ShapeData.LoadFile(ref shapes, ref fileName, ref isChanged);
             UpdateTopPanel();
         }
@@ -564,6 +609,7 @@ namespace mnogougolniki
             ShapeData.SaveAsFile(ref shapes, ref fileName, ref isChanged);
             UpdateTopPanel();
         }
+
         void UpdateTopPanel()
         {
             if (fileName.Length > 0)
@@ -584,13 +630,19 @@ namespace mnogougolniki
             if (e.Control && e.KeyCode == Keys.S)
             {
                 ShapeData.Save(ref shapes, ref fileName, ref isChanged);
-                //SaveFile();
             }
 
             if (e.Control && e.KeyCode == Keys.O)
             {
                 ShapeData.LoadFile(ref shapes, ref fileName, ref isChanged);
-                //LoadFile();
+            }
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                Undo();
+            }
+            if (e.Control && e.KeyCode == Keys.Y)
+            {
+                Redo();
             }
         }
 
@@ -603,6 +655,37 @@ namespace mnogougolniki
                     ShapeData.Save(ref shapes, ref fileName, ref isChanged);
                 }
             }
+        }
+        void Undo()
+        {
+            if (undo.Count > 0)
+            {
+                Console.WriteLine("undo " + undo.Peek().GetType().Name);
+                Change change = undo.Pop();
+                change.Undo();
+                redo.Push(change);
+            }
+            Refresh();
+        }
+        void Redo()
+        {
+            if (redo.Count > 0)
+            {
+                Console.WriteLine("redo "+redo.Peek().GetType().Name);
+                Change change = redo.Pop();
+                change.Redo();
+                undo.Push(change);
+            }
+            Refresh();
+        }
+        public void ClearRedoStack() 
+        {
+            Console.WriteLine("redo cleared");
+            if (redo.Count > 0)
+            {
+                redo.Clear();
+            }
+            ClearShell();
         }
     }
 }

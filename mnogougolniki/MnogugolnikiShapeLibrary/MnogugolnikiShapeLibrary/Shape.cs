@@ -18,6 +18,8 @@ namespace MnogugolnikiShapeLibrary
         int y;
         [NonSerialized] int xShift;
         [NonSerialized] int yShift;
+        [NonSerialized] int startPositionX;
+        [NonSerialized] int startPositionY;
         public int X
         {
             get
@@ -133,6 +135,10 @@ namespace MnogugolnikiShapeLibrary
                 fillColor = value;
             }
         }
+
+        public int StartPositionX { get => startPositionX; set => startPositionX = value; }
+        public int StartPositionY { get => startPositionY; set => startPositionY = value; }
+
         static Shape()
         {
             r = 50;
@@ -143,11 +149,15 @@ namespace MnogugolnikiShapeLibrary
         {
             this.x = x;
             this.y = y;
+            startPositionX = x;
+            startPositionY = y;
         }
         public Shape(Point position)
         {
             this.x = position.X;
             this.y = position.Y;
+            startPositionX = x;
+            startPositionY = y;
         }
         public abstract void Draw(Graphics g);
         public abstract bool IsInside(Point mousePosition);

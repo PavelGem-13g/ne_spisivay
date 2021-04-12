@@ -43,6 +43,8 @@
             this.trackBar.TabIndex = 0;
             this.trackBar.Value = 1;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
+            this.trackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.trackBar_MouseDown);
+            this.trackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar_MouseUp);
             // 
             // Radius
             // 

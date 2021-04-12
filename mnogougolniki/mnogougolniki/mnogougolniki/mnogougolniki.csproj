@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MnogougolnikiUndoRedo">
-      <HintPath>DLL\MnogougolnikiUndoRedo.dll</HintPath>
-    </Reference>
     <Reference Include="MnogugolnikiShapeLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\MnogugolnikiShapeLibrary.dll</HintPath>
@@ -78,6 +75,14 @@
     </Compile>
     <Compile Include="RadiusEventArgs.cs" />
     <Compile Include="TimeEventArgs.cs" />
+    <Compile Include="UndoRedo\Change.cs" />
+    <Compile Include="UndoRedo\ChangeAddShape.cs" />
+    <Compile Include="UndoRedo\ChangeColor.cs" />
+    <Compile Include="UndoRedo\ChangeDeleteShape.cs" />
+    <Compile Include="UndoRedo\ChangeFigureMove.cs" />
+    <Compile Include="UndoRedo\ChangePointMove.cs" />
+    <Compile Include="UndoRedo\ChangeRadius.cs" />
+    <Compile Include="UndoRedo\ChangeShapeType.cs" />
     <EmbeddedResource Include="Dynamics.resx">
       <DependentUpon>Dynamics.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,5 +115,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
