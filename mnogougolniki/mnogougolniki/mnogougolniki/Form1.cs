@@ -98,10 +98,9 @@ namespace mnogougolniki
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            
+
             if (MouseButtons.Left == e.Button)
             {
-                ClearRedoStack();
                 bool flagAddShape = true;
                 if (shapes.Count > 2 && PolygonIsInside(e.Location))
                 {
@@ -143,8 +142,8 @@ namespace mnogougolniki
                         {
                             shapes.Add(new Triangle(e.Location));
                         }
-
-                        undo.Push(new ChangeAddShape(e.Location, shapeType, shapes[shapes.Count - 1]));
+                        redo.Clear();
+                        undo.Push(new ChangeAddShape(shapes[shapes.Count-1]));
                     }
                 }
                 isChanged = true;
@@ -152,12 +151,13 @@ namespace mnogougolniki
             }
             if (MouseButtons.Right == e.Button)
             {
-                ClearRedoStack();
+                
                 for (int i = shapes.Count - 1; 0 <= i; i--)
                 {
                     if (shapes[i].IsInside(e.Location))
                     {
-                        undo.Push(new ChangeDeleteShape(e.Location, shapeType, shapes[i]));
+                        redo.Clear();
+                        undo.Push(new ChangeDeleteShape(shapes[i]));
                         shapes.Remove(shapes[i]);
                         break;
                     }
@@ -169,11 +169,11 @@ namespace mnogougolniki
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            ClearRedoStack();
             if (isDrag)
             {
+                ClearRedoStack();
                 undo.Push(new ChangeFigureMove());
-            }   
+            }
             isDrag = false;
             if (MouseButtons.Left == e.Button)
             {
@@ -472,9 +472,9 @@ namespace mnogougolniki
 
         private void lineColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClearRedoStack();
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
+            ClearRedoStack();
             undo.Push(new ChangeColor(Shape.FillColor, colorDialog.Color, 1));
             Shape.LineColor = colorDialog.Color;
             isChanged = true;
@@ -483,9 +483,9 @@ namespace mnogougolniki
 
         private void fillColorToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ClearRedoStack();
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
+            ClearRedoStack();
             undo.Push(new ChangeColor(Shape.FillColor, colorDialog.Color, 0));
             Shape.FillColor = colorDialog.Color;
             isChanged = true;
@@ -671,20 +671,17 @@ namespace mnogougolniki
         {
             if (redo.Count > 0)
             {
-                Console.WriteLine("redo "+redo.Peek().GetType().Name);
+                Console.WriteLine("redo " + redo.Peek().GetType().Name);
                 Change change = redo.Pop();
                 change.Redo();
                 undo.Push(change);
             }
             Refresh();
         }
-        public void ClearRedoStack() 
+        public void ClearRedoStack()
         {
             Console.WriteLine("redo cleared");
-            if (redo.Count > 0)
-            {
-                redo.Clear();
-            }
+            redo.Clear();
             ClearShell();
         }
     }
