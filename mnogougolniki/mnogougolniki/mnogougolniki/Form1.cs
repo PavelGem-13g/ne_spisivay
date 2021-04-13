@@ -195,6 +195,7 @@ namespace mnogougolniki
                 {
                     if (!shapes[i].IsShell)
                     {
+                        undo.Push(new ChangeDeleteShape(shapes[i]));
                         shapes.Remove(shapes[i]);
                     }
                 }
