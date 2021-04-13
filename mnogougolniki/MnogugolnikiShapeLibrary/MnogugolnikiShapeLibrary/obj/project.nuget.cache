@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "DcJgTN5q4F+paftkdX9uyrkJN0S1mLbhE99HBFH7TbrBP3bJuyWKLQMLtxPT4iiyv41GdHanm61Mnj9Mc7pZ7g==",
+  "dgSpecHash": "m+bOU5rGTO//7iuDdc6jZR8q6vMtGL79T5aMI6E9Dgd5CauMXL7V23fS/YtakKuZmak8nt2BDkipfyc0TxMAYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pashe\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
+  "projectFilePath": "C:\\Users\\Павел\\Documents\\GitHub\\ne_spisivay\\mnogougolniki\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary\\MnogugolnikiShapeLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pashe\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\pashe\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\pashe\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512"
+    "C:\\Users\\Павел\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Павел\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Павел\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -16,6 +16,7 @@ namespace MnogugolnikiShapeLibrary
         [NonSerialized] bool isShell;
         int x;
         int y;
+        public int id;
         [NonSerialized] int xShift;
         [NonSerialized] int yShift;
         [NonSerialized] int startPositionX;
